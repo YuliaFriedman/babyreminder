@@ -1,0 +1,66 @@
+@import '../sass/variables';
+
+
+:host ::ng-deep.app_sub_title {
+  color: rgb(89, 89, 89);
+  font-weight: bold;
+  font-size: 15px;
+}
+
+:host ::ng-deep.app_content_text {
+  color: rgb(166, 166, 166);
+}
+
+:host ::ng-deep.form_input{
+  width: 100%;
+  padding: 5px 5px;
+  box-sizing: border-box;
+  border: 1px solid rgb(217, 217, 217);
+  outline-color: mat-color($candy-app-accent);
+}
+
+:host ::ng-deep.form_label{
+  font-weight: bold;
+}
+
+app-tabs{
+  height: 100%;
+  display: block;
+  position: absolute;
+  width: 100%;
+}
+
+:host ::ng-deep.primary_button{
+  background: mat-color($candy-app-accent);
+  border: 0px;
+  padding: 5px;
+  color: mat-contrast($candy-app-accent, 900);
+}
+
+:host ::ng-deep.secondary_button{
+  background: mat-color($candy-app-primary);
+  border: 0px;
+  padding: 5px;
+  color: mat-contrast($candy-app-primary, 900);
+}
+
+
+:host ::ng-deep.ok_button{
+  background: url('../assets/ok.png');
+}
+
+:host ::ng-deep.cancel_button{
+  background: url('../assets/x.png');
+}
+
+:host ::ng-deep.icon_button{
+  border: 0px;
+  height: 30px;
+  width: 30px;
+  background-size: 18px 25px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+}
+
+

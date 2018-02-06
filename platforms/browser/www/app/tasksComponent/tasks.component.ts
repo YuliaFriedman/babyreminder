@@ -1,0 +1,23 @@
+import {Component, OnInit} from '@angular/core';
+import {DataProvider} from "../services/DataProvider";
+import {Task} from "../models/task";
+
+@Component({
+  selector: 'tasks-list',
+  templateUrl: './tasks.component.html',
+  styleUrls: ['./tasks.component.scss']
+})
+export class TasksComponent implements OnInit{
+
+  tasks: Task[] = [];
+
+  constructor(private _dataProvider: DataProvider){
+  }
+
+  ngOnInit(): void {
+    this._dataProvider.getTasks().subscribe(
+      tasks => this.tasks = tasks
+    );
+  }
+
+}

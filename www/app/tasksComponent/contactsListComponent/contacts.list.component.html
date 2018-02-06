@@ -1,0 +1,60 @@
+<mat-spinner class="waiting_spinner" [diameter]="'40'" *ngIf="waitingForContacts"></mat-spinner>
+
+<div class="contacts_list_container">
+
+  <div class="search_container">
+    <input class="search_box" [(ngModel)]="searchValue" (keyup.enter)="search()"/>
+    <button (click)="search()" class="search_button icon_button" ></button>
+
+    <button (click)="addNewContact()" class="add_button icon_button"></button>
+  </div>
+
+  <div class="contacts_container">
+    <div *ngIf="newContact" class="new_contact_container">
+      <div>
+        <!--<input [(ngModel)]="newContact.name">-->
+        <mat-form-field [floatLabel]="'never'">
+          <input matInput placeholder="Name" [formControl]="newContactName" required>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field [floatLabel]="'never'">
+          <input matInput placeholder="Phone" [formControl]="newContactPhone" required>
+        </mat-form-field>
+        <!--<input [(ngModel)]="newContact.phone">-->
+      </div>
+      <div class="new_contact_buttons">
+        <button (click)="removeNewContact()" class="cancel_button icon_button"></button>
+        <button (click)="saveNewContact()" class="ok_button icon_button"></button>
+      </div>
+    </div>
+
+    <div >
+
+      <div *ngFor="let contact of filteredContacts" class="contact_item_container">
+        <div *ngIf="!contact.isNew" class="contact_item" (click)="toggleContactSelection(contact)" [ngClass]="{selected_contact: contact.isSelected}">
+          <div class="contact_details">
+            <div>
+              {{contact.name}}
+            </div>
+            <div>
+              {{contact.phone}}
+            </div>
+          </div>
+          <div class="contact_checkbox_container">
+            <mat-checkbox class="selectedCheckbox" [(ngModel)]="contact.isSelected"></mat-checkbox>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+  <div id="buttonsContainer">
+    <button id="cancelButton" class="secondary_button" (click)="cancel()">Cancel</button>
+    <button id="okButton" class="primary_button" (click)="saveContacts()">OK</button>
+  </div>
+
+</div>

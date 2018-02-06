@@ -1,0 +1,88 @@
+@import '../../../sass/variables.scss';
+
+.contacts_list_container{
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 120px);
+  margin: 10px;
+}
+
+.contact_item{
+  display: flex;
+}
+
+.contact_details{
+  flex: 1;
+}
+
+.contact_item.selected_contact{
+  font-weight: bold;
+}
+
+#buttonsContainer{
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  display: flex;
+}
+
+#okButton, #cancelButton{
+  flex: 1;
+  padding: 10px;
+}
+
+.new_contact_container{
+  padding: 10px;
+  border: 1px solid #e3e3e3;
+  margin: 10px 0px;
+  -webkit-box-shadow: 1px 1px 0px 0px rgba(255, 255, 255, 0.75);
+  -moz-box-shadow: 1px 1px 0px 0px rgba(255, 255, 255, 0.75);
+  box-shadow: 1px 1px 0px 0px rgba(255, 255, 255, 0.75)
+}
+
+.new_contact_buttons{
+  float: right;
+}
+
+mat-form-field{
+  width: 100%;
+}
+
+
+.search_button{
+  background-image: url('../../../assets/search.png');
+  height: 21px;
+  background-size: 18px;
+  vertical-align: middle;
+}
+
+.add_button{
+  background-image: url('../../../assets/add.png');
+  height: 21px;
+  vertical-align: middle;
+  background-size: 18px;
+}
+
+.search_container{
+  display: flex;
+  align-items: center;
+}
+
+.search_box{
+  flex: 1;
+  height: 30px;
+}
+
+.contacts_container{
+  margin-top: 10px;
+}
+
+.contact_item_container{
+  margin-top: 10px;
+  border-bottom: 1px solid white;
+  padding-bottom: 10px;
+}
+
+.contact_checkbox_container{
+  padding-top: 5px;
+}

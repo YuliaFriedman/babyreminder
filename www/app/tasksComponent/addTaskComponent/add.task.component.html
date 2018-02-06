@@ -1,0 +1,47 @@
+<div class="add_task_container app_content_text" >
+  <div>
+    <mat-form-field id="titleContainer" [floatLabel]="'never'">
+      <input matInput placeholder="Title" [formControl]="title" required>
+      <mat-error *ngIf="title.invalid">{{getErrorMessage("title")}}</mat-error>
+    </mat-form-field>
+  </div>
+
+  <div id="timePickerContainer">
+    <ngb-timepicker [(ngModel)]="timePickerModel" required></ngb-timepicker>
+  </div>
+
+  <div id="daysContainer">
+    <span><span class="day_button" [ngClass]="{day_selected: task.days.indexOf(0) >= 0}" (click)="toggleDay(0)">S</span></span>
+    <span><span class="day_button" [ngClass]="{day_selected: task.days.indexOf(1) >= 0}" (click)="toggleDay(1)">M</span></span>
+    <span><span class="day_button" [ngClass]="{day_selected: task.days.indexOf(2) >= 0}" (click)="toggleDay(2)">T</span></span>
+    <span><span class="day_button" [ngClass]="{day_selected: task.days.indexOf(3) >= 0}" (click)="toggleDay(3)">W</span></span>
+    <span><span class="day_button" [ngClass]="{day_selected: task.days.indexOf(4) >= 0}" (click)="toggleDay(4)">Th</span></span>
+    <span><span class="day_button" [ngClass]="{day_selected: task.days.indexOf(5) >= 0}" (click)="toggleDay(5)">F</span></span>
+    <span><span class="day_button" [ngClass]="{day_selected: task.days.indexOf(6) >= 0}" (click)="toggleDay(6)">St</span></span>
+  </div>
+
+  <div id="repeatContainer">
+    <span class="form_label">Repeat</span>
+    <mat-checkbox id="repeatCheckbox" [(ngModel)]="task.repeat"></mat-checkbox>
+  </div>
+
+  <div id="shareContactsContainer">
+    <div><span class="form_label">Share with</span><button id="contactsButton" (click)="openContactsList()"></button></div>
+    <div *ngFor="let c of task.contacts">
+      <div>
+        {{c.name}}
+      </div>
+      <div>
+        {{c.phone}}
+      </div>
+    </div>
+  </div>
+
+  <div id="buttonsContainer">
+    <button id="cancelButton" class="secondary_button" (click)="cancel()">Cancel</button>
+    <button id="okButton" class="primary_button" (click)="saveTask()">OK</button>
+  </div>
+
+</div>
+
+

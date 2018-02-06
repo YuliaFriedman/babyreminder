@@ -1,0 +1,11 @@
+/* You can add global styles to this file, and also import other style files */
+
+/*@import '~@angular/material/prebuilt-themes/purple-green.css';*/
+
+body{
+  background: rgb(241, 241, 241) !important; /* override bootstrap css */
+  font-family: "Calibri, Helvetica Neue",sans-serif;
+  font-size: 12px !important;
+  margin: 0px;
+  text-transform: none !important;
+}
