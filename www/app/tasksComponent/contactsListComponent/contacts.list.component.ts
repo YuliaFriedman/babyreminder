@@ -94,8 +94,9 @@ export class ContactsListComponent implements OnInit{
     this.newContact = null;
   }
 
-  toggleContactSelection(contact: Contact){
+  toggleContactSelection(contact: Contact, event){
     contact.isSelected = !contact.isSelected;
+    event.preventDefault();
   }
 
   saveContacts(){

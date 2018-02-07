@@ -5,7 +5,7 @@ import {AppFeatureSupportService} from "./appFeaturesSuppertService";
 import {ErrorType, Error} from "../models/errors";
 import {Injectable, NgZone} from "@angular/core";
 import {LogService} from "./LogService";
-import {setTimeout} from "timers";
+//import {setTimeout} from "timers";
 
 @Injectable()
 export class DataProvider{
@@ -41,9 +41,8 @@ export class DataProvider{
   }
 
   getContacts(): Observable<Contact[]>{
-
-
     return new Observable((observer) => {
+
       if(this._appFeatureSupportService.hasContacts()){
         //var options = new ContactFindOptions();
         this.getRealContacts(observer);
@@ -128,10 +127,10 @@ export class DataProvider{
 
     this.markSelectedContacts(arr);
 
-    setTimeout(() => {
+    //setTimeout(() => {
       observer.next(arr);
       observer.complete();
-    }, 1000);
+    //}, 1000);
   }
 
   markSelectedContacts(contacts){
