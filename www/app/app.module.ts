@@ -28,6 +28,7 @@ import {MessagesComponent} from "./messagesComponent/messages.component";
 import {ContactsListComponent} from "./tasksComponent/contactsListComponent/contacts.list.component";
 import {AppFeatureSupportService} from "./services/appFeaturesSuppertService";
 import {LogService} from "./services/LogService";
+import {TasksTimer} from "./services/TasksTimerService";
 
 @NgModule({
   declarations: [
@@ -58,7 +59,14 @@ import {LogService} from "./services/LogService";
     AppRouterModule,
     NgbModule.forRoot()
   ],
-  providers: [DataProvider, AppUtils, AppFeatureSupportService, LogService, {provide: APP_BASE_HREF, useValue : '/' }], //, AppStore
+  providers: [
+    DataProvider,
+    AppUtils,
+    AppFeatureSupportService,
+    LogService,
+    TasksTimer,
+    {provide: APP_BASE_HREF, useValue : '/' }
+    ], //, AppStore
   bootstrap: [AppComponent]
 })
 export class AppModule { }

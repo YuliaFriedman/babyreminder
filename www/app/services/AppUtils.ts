@@ -13,4 +13,8 @@ export class AppUtils{
     return this.getDaysFriendlyStr(day).substr(0, 1);
   }
 
+  nullOrUndefined(obj: any): boolean{
+    return obj == undefined || obj == null;
+  }
+
 }

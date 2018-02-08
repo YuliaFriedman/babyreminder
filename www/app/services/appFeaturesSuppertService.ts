@@ -1,4 +1,5 @@
 import {Injectable} from "@angular/core";
+import {AppUtils} from "./AppUtils";
 
 declare global {
   interface Navigator {
@@ -6,17 +7,29 @@ declare global {
   }
 }
 
+declare global {
+  interface Window {
+    wakeuptimer: any;
+  }
+}
+
 @Injectable()
 export class AppFeatureSupportService{
 
-  constructor(){
+  constructor(private appUtils:AppUtils){
 
   }
 
   hasContacts(): boolean{
-    let hasContacts = navigator && navigator.contacts;
+    let hasContacts = !this.appUtils.nullOrUndefined(navigator && navigator.contacts);
     console.log("has contacts = " + hasContacts);
     return hasContacts;
+  }
+
+  hasWakeupTimer(): boolean{
+    let hasWakeup = !this.appUtils.nullOrUndefined(window.wakeuptimer);
+    console.log("has wakeup timer = " + hasWakeup);
+    return hasWakeup;
   }
 
 }

@@ -1,33 +1,41 @@
 import {Observable} from "rxjs/Observable";
-import {Contact, Task} from "../models/task";
+import {Contact, Task, TimerType} from "../models/task";
 import {tasks} from "../api/tasks";
 import {AppFeatureSupportService} from "./appFeaturesSuppertService";
 import {ErrorType, Error} from "../models/errors";
 import {Injectable, NgZone} from "@angular/core";
 import {LogService} from "./LogService";
+import {TasksTimer} from "./TasksTimerService";
 //import {setTimeout} from "timers";
 
 @Injectable()
 export class DataProvider{
 
+  tasks;
   newTask: Task;
 
-  constructor(private _appFeatureSupportService: AppFeatureSupportService, private _logService: LogService, private zone:NgZone){
+  constructor(private _appFeatureSupportService: AppFeatureSupportService, private _logService: LogService, private zone:NgZone, private tasksTimer: TasksTimer){
 
   }
 
   getTasks():  Observable<Task[]>{
     return new Observable((observer) => {
-      observer.next(tasks);
+      if(!this.tasks){
+        this.tasks = tasks;
+      }
+      observer.next(this.tasks);
       observer.complete();
     });
   }
 
 
   saveNewTask(task:Task): Promise<void>{
+    // save in server
     const promise = new Promise<void>((resolve, reject) => {
-      tasks.push(task);
+      this.tasks.push(task);
       this.newTask = null;
+      task.timerState.setType(TimerType.Alarm);
+      this.tasksTimer.setAlarms(this.tasks);
       resolve();
     });
     return promise;

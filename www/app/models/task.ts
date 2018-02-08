@@ -7,6 +7,7 @@ export class Task {
   isEnabled: boolean;
   repeat: boolean;
   contacts: Contact[];
+  timerState:TimerState;
 
   constructor(){
     let now = new Date();
@@ -14,7 +15,7 @@ export class Task {
     this.isEnabled = true;
     this.days = [];
     this.contacts = [];
-
+    this.timerState = new TimerState();
   }
 
 }
@@ -63,4 +64,30 @@ export class Time{
     return hoursStr + ":" + minutesStr;
   }
 
+}
+
+export class TimerState{
+  type:TimerType;
+  time: Time //relevant only for snooze
+
+  constructor(){
+    this.type = TimerType.Idle;
+  }
+
+  setType(type: TimerType){
+    this.type = type;
+    if(type == TimerType.Alarm){
+      this.time = null;
+    }
+  }
+
+  setTime(time: Time){
+    this.time = time;
+  }
+}
+
+export enum TimerType {
+  Alarm,
+  Snooze,
+  Idle
 }
