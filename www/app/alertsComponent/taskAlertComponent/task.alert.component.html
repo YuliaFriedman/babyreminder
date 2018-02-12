@@ -1,0 +1,10 @@
+<div class="task_alert" *ngIf="showAlert">
+
+  <div class="alert_title">Task completed?</div>
+  <div class="task_title">{{currentTask.title}}</div>
+  <div id="buttons_container">
+    <button (click)="hideAlert()" class="secondary_button">Cancel</button>
+    <button (click)="snoozeTask()" class="secondary_button">Snooze</button>
+    <button (click)="completeTask()" class="primary_button">Done</button>
+  </div>
+</div>

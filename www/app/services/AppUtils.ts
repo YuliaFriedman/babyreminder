@@ -1,6 +1,5 @@
 import {Days} from "../models/task";
 import {Injectable} from "@angular/core";
-declare var cordova;
 
 @Injectable()
 export class AppUtils{

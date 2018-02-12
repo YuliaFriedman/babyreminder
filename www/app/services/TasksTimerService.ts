@@ -1,13 +1,15 @@
 import {AppFeatureSupportService} from "./appFeaturesSuppertService";
 import {DataProvider} from "./DataProvider";
 import {TimerType, Task, Days} from "../models/task";
-import {Injectable} from "@angular/core";
+import {Injectable, NgZone} from "@angular/core";
+import {EventsManager} from "./AppEventsManager";
+import {AppConstants} from "../appConstants";
 
 
 @Injectable()
 export class TasksTimer {
 
-  constructor(private appFeatureSupportService: AppFeatureSupportService) {
+  constructor(private appFeatureSupportService: AppFeatureSupportService, private eventsManager:EventsManager,  private zone:NgZone) {
     //this.setAlarms();
   }
 
@@ -29,7 +31,20 @@ export class TasksTimer {
       }
 
       if (alarms.length > 0) {
-        window.wakeuptimer.wakeup(this.alarmCallbak, this.alarmError, {alarms: alarms});
+        window.wakeuptimer.wakeup(this.alarmCallbak.bind(this), this.alarmError.bind(this), {alarms: alarms});
+      }
+    }
+    else{
+      // demo alarm
+      let wakeupTime = 1000;
+      for (let task of tasks) {
+        setTimeout(() => {
+          this.alarmCallbak({
+            type: "wakeup",
+            extra: task
+          })
+        }, wakeupTime);
+        wakeupTime += 60000;
       }
     }
   }
@@ -68,13 +83,19 @@ export class TasksTimer {
 
 
   alarmCallbak(result) {
-    if (result.type === 'wakeup') {
-      console.log('wakeup alarm detected--' + result.extra);
-    } else if (result.type === 'set') {
-      console.log('wakeup alarm set--' + result);
-    } else {
-      console.log('wakeup unhandled type (' + result.type + ')');
-    }
+    this.zone.run(() => {
+      if (result.type === 'wakeup') {
+        console.log('wakeup alarm detected--', result.extra);
+        var extra = JSON.parse(result.extra);
+        this.eventsManager.handleEvent(AppConstants.eventTypes.wakeAppEvent, extra);
+      }
+      else if (result.type === 'set') {
+        console.log('wakeup alarm set--' + result);
+      }
+      else {
+        console.log('wakeup unhandled type (' + result.type + ')');
+      }
+    });
   };
 
   alarmError(error) {

@@ -74,27 +74,27 @@ export class DataProvider{
     var fields = ["displayName","phoneNumbers"];
     navigator.contacts.find(fields, result => {
 
-      //this.zone.run(() => {
-      let contacts;
+      this.zone.run(() => {
+        let contacts;
 
-      if(result){
-        contacts = [];
-        for(let contact of result){
+        if(result){
+          contacts = [];
+          for(let contact of result){
 
-          let hasPhone = contact.phoneNumbers && contact.phoneNumbers.length > 0;
-          if(hasPhone){
-            let phone = contact.phoneNumbers[0].value;
-            let name = contact.displayName;
-            contacts.push(new Contact(name, phone));
+            let hasPhone = contact.phoneNumbers && contact.phoneNumbers.length > 0;
+            if(hasPhone){
+              let phone = contact.phoneNumbers[0].value;
+              let name = contact.displayName;
+              contacts.push(new Contact(name, phone));
+            }
+
           }
-
         }
-      }
-      this._logService.log("Contacts: ", contacts);
-      this.markSelectedContacts(contacts);
-      observer.next(contacts);
-      observer.complete();
-      //});
+        this._logService.log("Contacts: ", contacts);
+        this.markSelectedContacts(contacts);
+        observer.next(contacts);
+        observer.complete();
+      });
 
     }, () => {
       this._logService.log("Get contacts failed");

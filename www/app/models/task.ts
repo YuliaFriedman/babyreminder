@@ -1,6 +1,8 @@
-import {Errors, ErrorType} from "./errors";
+let idIndex = 0;
+let id = 0;
 
 export class Task {
+  id: string;
   title: string;
   days: Days[];
   time: Time;
@@ -10,6 +12,8 @@ export class Task {
   timerState:TimerState;
 
   constructor(){
+    this.id = id + "";
+    id++;
     let now = new Date();
     this.time = new Time(now.getHours(), now.getMinutes());
     this.isEnabled = true;

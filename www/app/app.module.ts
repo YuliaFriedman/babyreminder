@@ -29,6 +29,25 @@ import {ContactsListComponent} from "./tasksComponent/contactsListComponent/cont
 import {AppFeatureSupportService} from "./services/appFeaturesSuppertService";
 import {LogService} from "./services/LogService";
 import {TasksTimer} from "./services/TasksTimerService";
+import {TaskAlertComponent} from "./alertsComponent/taskAlertComponent/task.alert.component";
+import {EventsManager} from "./services/AppEventsManager";
+import {BackgroundManager} from "./services/BackgroundManager";
+import {TesterComponent} from "./tasksComponent/testerComponent/tester.component";
+
+declare global {
+  interface Navigator {
+    contacts: any;
+  }
+}
+
+
+declare global {
+  interface Window {
+    wakeuptimer: any,
+    cordova: any
+  }
+}
+
 
 @NgModule({
   declarations: [
@@ -38,7 +57,9 @@ import {TasksTimer} from "./services/TasksTimerService";
     TaskItemComponent,
     AddTaskComponent,
     MessagesComponent,
-    ContactsListComponent
+    ContactsListComponent,
+    TaskAlertComponent,
+    TesterComponent
   ],
   imports: [
     BrowserModule,
@@ -65,6 +86,8 @@ import {TasksTimer} from "./services/TasksTimerService";
     AppFeatureSupportService,
     LogService,
     TasksTimer,
+    EventsManager,
+    BackgroundManager,
     {provide: APP_BASE_HREF, useValue : '/' }
     ], //, AppStore
   bootstrap: [AppComponent]
