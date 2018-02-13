@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {LogService} from "./services/LogService";
+import {BackgroundManager} from "./services/BackgroundManager";
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,7 @@ import {LogService} from "./services/LogService";
 })
 export class AppComponent  implements OnInit{
 
-  constructor(private _logService:LogService){}
+  constructor(private _logService:LogService, private backgroundManager: BackgroundManager){}
 
   appInitialized = true;
 

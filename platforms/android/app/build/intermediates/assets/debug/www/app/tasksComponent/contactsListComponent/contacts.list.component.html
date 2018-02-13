@@ -1,3 +1,5 @@
+<mat-spinner class="waiting_spinner" [diameter]="'40'" *ngIf="waitingForContacts"></mat-spinner>
+
 <div class="contacts_list_container">
 
   <div class="search_container">
@@ -30,7 +32,7 @@
     <div >
 
       <div *ngFor="let contact of filteredContacts" class="contact_item_container">
-        <div *ngIf="!contact.isNew" class="contact_item" (click)="toggleContactSelection(contact)" [ngClass]="{selected_contact: contact.isSelected}">
+        <div *ngIf="!contact.isNew" class="contact_item" (click)="toggleContactSelection(contact, $event)" [ngClass]="{selected_contact: contact.isSelected}">
           <div class="contact_details">
             <div>
               {{contact.name}}
@@ -47,8 +49,6 @@
 
     </div>
   </div>
-
-
 
   <div id="buttonsContainer">
     <button id="cancelButton" class="secondary_button" (click)="cancel()">Cancel</button>

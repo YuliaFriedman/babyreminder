@@ -17,67 +17,131 @@
  * under the License.
  */
 var app = {
-    index : 0,
-    // Application Constructor
-    initialize: function() {
-        document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
-    },
+  index: 0,
+  // Application Constructor
+  initialize: function () {
+    document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
+  },
 
-    // deviceready Event Handler
-    //
-    // Bind any cordova events here. Common events are:
-    // 'pause', 'resume', etc.
-    onDeviceReady: function() {
-        //this.receivedEvent('deviceready');
-        this.initBackgroundMode();
-        this.startBackgroundJob();
-    },
+  // deviceready Event Handler
+  //
+  // Bind any cordova events here. Common events are:
+  // 'pause', 'resume', etc.
+  onDeviceReady: function () {
+    //this.receivedEvent('deviceready');
 
-    initBackgroundMode: function () {
-        cordova.plugins.backgroundMode.on('activate', function() {
-            cordova.plugins.backgroundMode.disableWebViewOptimizations();
-        });
-        cordova.plugins.backgroundMode.overrideBackButton();
-        this.enableBackground();
-    },
+    document.getElementById("setTimerButton").onclick = function (event) {
+      if (!window.wakeuptimer) {
+        alert("timer is undefined");
+        return;
+      }
 
-    enableBackground: function () {
-        cordova.plugins.backgroundMode.enable();
-    },
+      var now = new Date();
 
-    disableBackground: function () {
-        cordova.plugins.backgroundMode.disable();
-    },
+      var onceAlarm = {
+        type: 'onetime',
+        extra: {id: 'once'},
+        time: {hour: now.getHours(), minute: now.getMinutes() + 2}
+      };
 
-    startBackgroundJob: function () {
-        setInterval(function(){
-            $('#background_log').append("<div>" + this.index + "</div>");
-            this.index++;
-            if(this.index % 10 == 0){
-                this.openAppFromBackground();
-            }
-        }.bind(this), 2000);
+      var dailyAlarm = {
+        type: 'daylist',
+        extra: {id: 'daily'},
+        days: ["wednesday"],
+        time: {hour: now.getHours(), minute: now.getMinutes() + 3}
+      };
 
-    },
+      var alarms = [onceAlarm, dailyAlarm];
 
-    openAppFromBackground: function () {
-        cordova.plugins.backgroundMode.moveToForeground();
-        //this.enableBackground();
-        //window.plugins.bringtofront();
-        alert("in front");
-    }
+      console.log("alarms: " , alarms);
 
-    // // Update DOM on a Received Event
-    // receivedEvent: function(id) {
-    //     var parentElement = document.getElementById(id);
-    //     var listeningElement = parentElement.querySelector('.listening');
-    //     var receivedElement = parentElement.querySelector('.received');
-    //
-    //     listeningElement.setAttribute('style', 'display:none;');
-    //     receivedElement.setAttribute('style', 'display:block;');
-    //
-    //     console.log('Received Event: ' + id);
-    // }
+      window.wakeuptimer.wakeup( function (result) {
+          if (result.type === 'wakeup') {
+            console.log('wakeup alarm detected--' + result.extra);
+          } else if (result.type === 'set') {
+            console.log('wakeup alarm set--' + result);
+          } else {
+            console.log('wakeup unhandled type (' + result.type + ')');
+          }
+        },
+        function (error) {
+          console.log("error");
+        },
+        // a list of alarms to set
+        {
+          alarms : alarms
+        }
+      );
+
+      //
+      // window.wakeuptimer.wakeup(
+      //   function (result) {
+      //     if (result.type === 'wakeup') {
+      //       console.log('wakeup alarm detected--' + result.extra);
+      //     } else if (result.type === 'set') {
+      //       console.log('wakeup alarm set--' + result);
+      //     } else {
+      //       console.log('wakeup unhandled type (' + result.type + ')');
+      //     }
+      //   },
+      //   function (error) {
+      //     console.log("error");
+      //   },
+      //   {
+      //     alarms: alarms
+      //   });
+
+    };
+
+    //this.initBackgroundMode();
+    //this.startBackgroundJob();
+  },
+
+  initBackgroundMode: function () {
+    cordova.plugins.backgroundMode.on('activate', function () {
+      cordova.plugins.backgroundMode.disableWebViewOptimizations();
+    });
+    cordova.plugins.backgroundMode.overrideBackButton();
+    this.enableBackground();
+  },
+
+  enableBackground: function () {
+    cordova.plugins.backgroundMode.enable();
+  },
+
+  disableBackground: function () {
+    cordova.plugins.backgroundMode.disable();
+  },
+
+  startBackgroundJob: function () {
+    setInterval(function () {
+      $('#background_log').append("<div>" + this.index + "</div>");
+      this.index++;
+      if (this.index % 10 == 0) {
+        this.openAppFromBackground();
+      }
+    }.bind(this), 2000);
+
+  },
+
+  openAppFromBackground: function () {
+    cordova.plugins.backgroundMode.moveToForeground();
+    //this.enableBackground();
+    //window.plugins.bringtofront();
+    alert("in front");
+  }
+
+  // // Update DOM on a Received Event
+  // receivedEvent: function(id) {
+  //     var parentElement = document.getElementById(id);
+  //     var listeningElement = parentElement.querySelector('.listening');
+  //     var receivedElement = parentElement.querySelector('.received');
+  //
+  //     listeningElement.setAttribute('style', 'display:none;');
+  //     receivedElement.setAttribute('style', 'display:block;');
+  //
+  //     console.log('Received Event: ' + id);
+  // }
 };
 
 app.initialize();

@@ -3,8 +3,14 @@
 .contacts_list_container{
   display: flex;
   flex-direction: column;
-  height: calc(100% - 120px);
-  margin: 10px;
+  height: 100%;
+}
+
+.contacts_container{
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 10px;
 }
 
 .contact_item{
@@ -20,9 +26,6 @@
 }
 
 #buttonsContainer{
-  position: absolute;
-  bottom: 0px;
-  width: 100%;
   display: flex;
 }
 
@@ -32,7 +35,7 @@
 }
 
 .new_contact_container{
-  padding: 10px;
+  padding: 10px 10px 40px 10px;
   border: 1px solid #e3e3e3;
   margin: 10px 0px;
   -webkit-box-shadow: 1px 1px 0px 0px rgba(255, 255, 255, 0.75);
@@ -64,17 +67,17 @@ mat-form-field{
 }
 
 .search_container{
+  padding: 10px;
   display: flex;
   align-items: center;
+  width: 100%;
+  background: rgb(241, 241, 241);
+  z-index: 100;
 }
 
 .search_box{
   flex: 1;
   height: 30px;
-}
-
-.contacts_container{
-  margin-top: 10px;
 }
 
 .contact_item_container{
@@ -85,4 +88,12 @@ mat-form-field{
 
 .contact_checkbox_container{
   padding-top: 5px;
+}
+
+.waiting_spinner{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -20px;
+  margin-top: -20px;
 }

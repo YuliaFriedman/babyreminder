@@ -1,34 +1,92 @@
 {
-  "cordova-plugin-whitelist": {
-    "source": {
-      "type": "registry",
-      "id": "cordova-plugin-whitelist@1"
+    "cordova-plugin-whitelist": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-whitelist@1"
+        },
+        "is_top_level": true,
+        "variables": {}
     },
-    "is_top_level": true,
-    "variables": {}
-  },
-  "cordova-plugin-background-mode": {
-    "source": {
-      "type": "registry",
-      "id": "cordova-plugin-background-mode"
+    "cordova-plugin-background-mode": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-background-mode"
+        },
+        "is_top_level": true,
+        "variables": {}
     },
-    "is_top_level": true,
-    "variables": {}
-  },
-  "cordova-plugin-device": {
-    "source": {
-      "type": "registry",
-      "id": "cordova-plugin-device"
+    "cordova-plugin-device": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-device"
+        },
+        "is_top_level": false,
+        "variables": {}
     },
-    "is_top_level": false,
-    "variables": {}
-  },
-  "cordova-plugin-contacts": {
-    "source": {
-      "type": "registry",
-      "id": "cordova-plugin-contacts@~2.0.1"
+    "cordova-plugin-contacts": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-contacts@~2.0.1"
+        },
+        "is_top_level": true,
+        "variables": {}
     },
-    "is_top_level": true,
-    "variables": {}
-  }
+    "org.nypr.cordova.wakeupplugin": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/wnyc/cordova-plugin-wakeuptimer.git",
+            "subdir": "."
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-lock-info": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-lock-info"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "phonegap-plugin-local-notification": {
+        "source": {
+            "type": "registry",
+            "id": "phonegap-plugin-local-notification"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "com.uniclau.alarmplugin": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/uniclau/AlarmPlugin.git",
+            "subdir": "."
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-local-notification": {
+        "source": {
+            "type": "registry",
+            "id": "git+https://github.com/katzer/cordova-plugin-local-notifications.git"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "de.appplant.cordova.plugin.local-notification": {
+        "source": {
+            "type": "registry",
+            "id": "de.appplant.cordova.plugin.local-notification@^0.8.5"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-badge": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-badge@^0.8.7"
+        },
+        "is_top_level": true,
+        "variables": {}
+    }
 }

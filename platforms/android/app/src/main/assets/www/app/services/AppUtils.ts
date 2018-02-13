@@ -1,6 +1,5 @@
 import {Days} from "../models/task";
 import {Injectable} from "@angular/core";
-declare var cordova;
 
 @Injectable()
 export class AppUtils{
@@ -11,6 +10,10 @@ export class AppUtils{
 
   getDaysFirstChar(day: Days): string{
     return this.getDaysFriendlyStr(day).substr(0, 1);
+  }
+
+  nullOrUndefined(obj: any): boolean{
+    return obj == undefined || obj == null;
   }
 
 }

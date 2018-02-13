@@ -1,14 +1,21 @@
+<div class="appContainer">
 
-<nav mat-tab-nav-bar>
-  <a mat-tab-link
-     *ngFor="let link of links; let i = index;"
-     [routerLink]="link.path"
-     routerLinkActive
-     #rla="routerLinkActive"
-     (click)="activeLinkIndex = i"
-     [active]="activeLinkIndex == i">
-     {{link.label}}
-  </a>
-</nav>
 
-<router-outlet class="appContent"></router-outlet>
+
+<nav mat-tab-nav-bar class="app_tabs">
+    <a mat-tab-link
+       *ngFor="let link of links; let i = index;"
+       [routerLink]="link.path"
+       routerLinkActive
+       #rla="routerLinkActive"
+       (click)="activeLinkIndex = i"
+       [active]="activeLinkIndex == i">
+       {{link.label}}
+    </a>
+  </nav>
+
+  <div class="app_content_wrapper">
+    <router-outlet class="appContent"></router-outlet>
+  </div>
+
+</div>

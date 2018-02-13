@@ -1,20 +1,25 @@
-import {Errors, ErrorType} from "./errors";
+let idIndex = 0;
+let id = 0;
 
 export class Task {
+  id: string;
   title: string;
   days: Days[];
   time: Time;
   isEnabled: boolean;
   repeat: boolean;
   contacts: Contact[];
+  timerState:TimerState;
 
   constructor(){
+    this.id = id + "";
+    id++;
     let now = new Date();
     this.time = new Time(now.getHours(), now.getMinutes());
     this.isEnabled = true;
     this.days = [];
     this.contacts = [];
-
+    this.timerState = new TimerState();
   }
 
 }
@@ -39,6 +44,13 @@ export class Contact{
     this.name = name;
     this.phone = phone;
   }
+
+  equal(c:Contact ): boolean{
+    if(!c){
+      return false;
+    }
+    return c.name === this.name && c.phone === this.phone;
+  }
 }
 
 export class Time{
@@ -56,4 +68,30 @@ export class Time{
     return hoursStr + ":" + minutesStr;
   }
 
+}
+
+export class TimerState{
+  type:TimerType;
+  time: Time //relevant only for snooze
+
+  constructor(){
+    this.type = TimerType.Idle;
+  }
+
+  setType(type: TimerType){
+    this.type = type;
+    if(type == TimerType.Alarm){
+      this.time = null;
+    }
+  }
+
+  setTime(time: Time){
+    this.time = time;
+  }
+}
+
+export enum TimerType {
+  Alarm,
+  Snooze,
+  Idle
 }

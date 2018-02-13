@@ -1,13 +1,42 @@
 -- Merging decision tree log ---
+activity#com.adobe.phonegap.notification.NotificationHandlerActivity
+INJECTED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:23:9-189
+	android:exported
+		ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:23:19-42
+	android:permission
+		INJECTED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:23:118-186
+	android:name
+		ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:23:43-117
+provider#de.appplant.cordova.plugin.notification.util.AssetProvider
+INJECTED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:30:9-32:20
+	android:grantUriPermissions
+		ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:30:92-126
+	android:authorities
+		INJECTED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:30:19-66
+	android:exported
+		ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:30:67-91
+	android:name
+		ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:30:127-200
 manifest
-ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:2:1-19:12
-INJECTED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:2:1-19:12
-INJECTED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:2:1-19:12
-INJECTED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:2:1-19:12
+ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:2:1-50:12
+INJECTED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:2:1-50:12
+INJECTED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:2:1-50:12
+INJECTED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:2:1-50:12
+MERGED from [me.leolin:ShortcutBadger:1.1.21] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.21.aar\a39c3641d0cce08d5540c580d65ebec3\AndroidManifest.xml:2:1-52:12
+MERGED from [com.android.support:support-v13:23.4.0] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\support-v13-23.4.0.aar\64f1422dc7712ae9998ec3d20f600f34\AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support:support-v4:26.1.0] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\ecfd8d83a4af3451d6bd3e2b43bb82d9\AndroidManifest.xml:17:1-31:12
 MERGED from [:CordovaLib] C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\CordovaLib\build\intermediates\manifests\full\debug\AndroidManifest.xml:20:1-27:12
-INJECTED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:2:1-19:12
-INJECTED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:2:1-19:12
-INJECTED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:2:1-19:12
+MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.1.0.aar\b9fffea2b188db2ae80466fe8696f58f\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\support-fragment-26.1.0.aar\74ad726e763efe5235fa14103cda7efd\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.1.0.aar\d66f5d2c8a43b56b49b0fe5c79dbbefb\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.1.0.aar\d18287577b5e8b83a577e216e40e8fe3\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-compat:26.1.0] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\support-compat-26.1.0.aar\469ea0e90127fc0d882b50bfd4bc4054\AndroidManifest.xml:17:1-31:12
+MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\6022d0f6438dc08d4048093f8882b5f1\AndroidManifest.xml:17:1-30:12
+INJECTED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:2:1-50:12
+INJECTED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:2:1-50:12
+INJECTED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:2:1-50:12
 	package
 		ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:2:102-135
 		INJECTED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml
@@ -43,7 +72,23 @@ ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\sr
 	android:name
 		ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:4:22-64
 application
-ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:5:5-13:19
+ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:5:5-41:19
+MERGED from [com.android.support:support-v13:23.4.0] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\support-v13-23.4.0.aar\64f1422dc7712ae9998ec3d20f600f34\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-v13:23.4.0] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\support-v13-23.4.0.aar\64f1422dc7712ae9998ec3d20f600f34\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-v4:26.1.0] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\ecfd8d83a4af3451d6bd3e2b43bb82d9\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-v4:26.1.0] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\ecfd8d83a4af3451d6bd3e2b43bb82d9\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.1.0.aar\b9fffea2b188db2ae80466fe8696f58f\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.1.0.aar\b9fffea2b188db2ae80466fe8696f58f\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\support-fragment-26.1.0.aar\74ad726e763efe5235fa14103cda7efd\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\support-fragment-26.1.0.aar\74ad726e763efe5235fa14103cda7efd\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.1.0.aar\d66f5d2c8a43b56b49b0fe5c79dbbefb\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.1.0.aar\d66f5d2c8a43b56b49b0fe5c79dbbefb\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.1.0.aar\d18287577b5e8b83a577e216e40e8fe3\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.1.0.aar\d18287577b5e8b83a577e216e40e8fe3\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-compat:26.1.0] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\support-compat-26.1.0.aar\469ea0e90127fc0d882b50bfd4bc4054\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-compat:26.1.0] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\support-compat-26.1.0.aar\469ea0e90127fc0d882b50bfd4bc4054\AndroidManifest.xml:25:5-29:19
+MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\6022d0f6438dc08d4048093f8882b5f1\AndroidManifest.xml:24:5-28:19
+MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\6022d0f6438dc08d4048093f8882b5f1\AndroidManifest.xml:24:5-28:19
 	android:supportsRtl
 		ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:5:114-140
 	android:label
@@ -53,7 +98,7 @@ ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\sr
 	android:icon
 		ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:5:53-80
 activity#io.cordova.hellocordova.MainActivity
-ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:6:9-11:20
+ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:6:9-15:20
 	android:label
 		ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:6:97-134
 	android:launchMode
@@ -78,31 +123,219 @@ category#android.intent.category.LAUNCHER
 ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:9:17-77
 	android:name
 		ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:9:27-74
+intent-filter#android.intent.category.DEFAULT+com.uniclau.alarmplugin.ALARM
+ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:11:13-14:29
+action#com.uniclau.alarmplugin.ALARM
+ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:12:17-72
+	android:name
+		ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:12:25-69
+category#android.intent.category.DEFAULT
+ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:13:17-76
+	android:name
+		ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:13:27-73
 service#de.appplant.cordova.plugin.background.ForegroundService
-ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:12:9-91
+ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:16:9-91
 	android:name
-		ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:12:18-88
+		ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:16:18-88
+receiver#org.nypr.cordova.wakeupplugin.WakeupReceiver
+ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:17:9-81
+	android:name
+		ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:17:19-78
+receiver#org.nypr.cordova.wakeupplugin.WakeupBootReceiver
+ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:18:9-22:20
+	android:name
+		ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:18:19-82
+intent-filter#android.intent.action.BOOT_COMPLETED
+ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:19:13-21:29
+action#android.intent.action.BOOT_COMPLETED
+ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:20:17-79
+	android:priority
+		ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:38:77-99
+	android:name
+		ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:20:25-76
+receiver#com.uniclau.alarmplugin.AlarmReceiver
+ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:24:9-100
+	android:process
+		ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:24:72-97
+	android:name
+		ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:24:19-71
+receiver#com.uniclau.alarmplugin.AlarmBoot
+ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:25:9-29:20
+	android:name
+		ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:25:19-67
+receiver#de.appplant.cordova.plugin.localnotification.TriggerReceiver
+ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:33:9-122
+	android:exported
+		ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:33:19-43
+	android:name
+		ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:33:44-119
+receiver#de.appplant.cordova.plugin.localnotification.ClearReceiver
+ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:34:9-120
+	android:exported
+		ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:34:19-43
+	android:name
+		ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:34:44-117
+activity#de.appplant.cordova.plugin.localnotification.ClickReceiver
+ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:35:9-205
+	android:launchMode
+		ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:35:44-79
+	android:exported
+		ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:35:19-43
+	android:theme
+		ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:35:154-202
+	android:name
+		ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:35:80-153
+receiver#de.appplant.cordova.plugin.localnotification.RestoreReceiver
+ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:36:9-40:20
+	android:exported
+		ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:36:19-43
+	android:name
+		ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:36:44-119
 uses-sdk
-ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:14:5-74
+ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:42:5-74
+MERGED from [me.leolin:ShortcutBadger:1.1.21] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.21.aar\a39c3641d0cce08d5540c580d65ebec3\AndroidManifest.xml:7:5-9:41
+MERGED from [me.leolin:ShortcutBadger:1.1.21] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.21.aar\a39c3641d0cce08d5540c580d65ebec3\AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:support-v13:23.4.0] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\support-v13-23.4.0.aar\64f1422dc7712ae9998ec3d20f600f34\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v13:23.4.0] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\support-v13-23.4.0.aar\64f1422dc7712ae9998ec3d20f600f34\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:26.1.0] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\ecfd8d83a4af3451d6bd3e2b43bb82d9\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-v4:26.1.0] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\ecfd8d83a4af3451d6bd3e2b43bb82d9\AndroidManifest.xml:21:5-23:54
 MERGED from [:CordovaLib] C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\CordovaLib\build\intermediates\manifests\full\debug\AndroidManifest.xml:25:5-44
 MERGED from [:CordovaLib] C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\CordovaLib\build\intermediates\manifests\full\debug\AndroidManifest.xml:25:5-44
+MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.1.0.aar\b9fffea2b188db2ae80466fe8696f58f\AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.1.0.aar\b9fffea2b188db2ae80466fe8696f58f\AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\support-fragment-26.1.0.aar\74ad726e763efe5235fa14103cda7efd\AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\support-fragment-26.1.0.aar\74ad726e763efe5235fa14103cda7efd\AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.1.0.aar\d66f5d2c8a43b56b49b0fe5c79dbbefb\AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.1.0.aar\d66f5d2c8a43b56b49b0fe5c79dbbefb\AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.1.0.aar\d18287577b5e8b83a577e216e40e8fe3\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.1.0.aar\d18287577b5e8b83a577e216e40e8fe3\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:26.1.0] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\support-compat-26.1.0.aar\469ea0e90127fc0d882b50bfd4bc4054\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:26.1.0] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\support-compat-26.1.0.aar\469ea0e90127fc0d882b50bfd4bc4054\AndroidManifest.xml:21:5-23:58
+MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\6022d0f6438dc08d4048093f8882b5f1\AndroidManifest.xml:20:5-22:41
+MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\6022d0f6438dc08d4048093f8882b5f1\AndroidManifest.xml:20:5-22:41
+	tools:overrideLibrary
+		ADDED from [com.android.support:support-v4:26.1.0] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\ecfd8d83a4af3451d6bd3e2b43bb82d9\AndroidManifest.xml:23:9-51
 	android:targetSdkVersion
-		ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:14:42-71
+		ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:42:42-71
 	android:minSdkVersion
-		ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:14:15-41
+		ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:42:15-41
 uses-permission#android.permission.WAKE_LOCK
-ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:15:5-68
+ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:43:5-68
 	android:name
-		ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:15:22-65
+		ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:43:22-65
 uses-permission#android.permission.READ_CONTACTS
-ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:16:5-72
+ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:44:5-72
 	android:name
-		ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:16:22-69
+		ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:44:22-69
 uses-permission#android.permission.WRITE_CONTACTS
-ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:17:5-73
+ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:45:5-73
 	android:name
-		ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:17:22-70
+		ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:45:22-70
 uses-permission#android.permission.GET_ACCOUNTS
-ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:18:5-71
+ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:46:5-71
 	android:name
-		ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:18:22-68
+		ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:46:22-68
+uses-permission#android.permission.RECEIVE_BOOT_COMPLETED
+ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:47:5-81
+	android:name
+		ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:47:22-78
+uses-permission#android.permission.DISABLE_KEYGUARD
+ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:48:5-75
+	android:name
+		ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:48:22-72
+uses-permission#android.permission.VIBRATE
+ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:49:5-66
+	android:name
+		ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:49:22-63
+meta-data#android.support.FILE_PROVIDER_PATHS
+ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:31:13-134
+	android:resource
+		ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:31:75-131
+	android:name
+		ADDED from C:\Users\yuliaf\WebstormProject\BabyReminder\platforms\android\app\src\main\AndroidManifest.xml:31:24-74
+uses-permission#com.sec.android.provider.badge.permission.READ
+ADDED from [me.leolin:ShortcutBadger:1.1.21] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.21.aar\a39c3641d0cce08d5540c580d65ebec3\AndroidManifest.xml:19:5-86
+	android:name
+		ADDED from [me.leolin:ShortcutBadger:1.1.21] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.21.aar\a39c3641d0cce08d5540c580d65ebec3\AndroidManifest.xml:19:22-83
+uses-permission#com.sec.android.provider.badge.permission.WRITE
+ADDED from [me.leolin:ShortcutBadger:1.1.21] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.21.aar\a39c3641d0cce08d5540c580d65ebec3\AndroidManifest.xml:20:5-87
+	android:name
+		ADDED from [me.leolin:ShortcutBadger:1.1.21] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.21.aar\a39c3641d0cce08d5540c580d65ebec3\AndroidManifest.xml:20:22-84
+uses-permission#com.htc.launcher.permission.READ_SETTINGS
+ADDED from [me.leolin:ShortcutBadger:1.1.21] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.21.aar\a39c3641d0cce08d5540c580d65ebec3\AndroidManifest.xml:23:5-81
+	android:name
+		ADDED from [me.leolin:ShortcutBadger:1.1.21] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.21.aar\a39c3641d0cce08d5540c580d65ebec3\AndroidManifest.xml:23:22-78
+uses-permission#com.htc.launcher.permission.UPDATE_SHORTCUT
+ADDED from [me.leolin:ShortcutBadger:1.1.21] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.21.aar\a39c3641d0cce08d5540c580d65ebec3\AndroidManifest.xml:24:5-83
+	android:name
+		ADDED from [me.leolin:ShortcutBadger:1.1.21] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.21.aar\a39c3641d0cce08d5540c580d65ebec3\AndroidManifest.xml:24:22-80
+uses-permission#com.sonyericsson.home.permission.BROADCAST_BADGE
+ADDED from [me.leolin:ShortcutBadger:1.1.21] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.21.aar\a39c3641d0cce08d5540c580d65ebec3\AndroidManifest.xml:27:5-88
+	android:name
+		ADDED from [me.leolin:ShortcutBadger:1.1.21] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.21.aar\a39c3641d0cce08d5540c580d65ebec3\AndroidManifest.xml:27:22-85
+uses-permission#com.sonymobile.home.permission.PROVIDER_INSERT_BADGE
+ADDED from [me.leolin:ShortcutBadger:1.1.21] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.21.aar\a39c3641d0cce08d5540c580d65ebec3\AndroidManifest.xml:28:5-92
+	android:name
+		ADDED from [me.leolin:ShortcutBadger:1.1.21] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.21.aar\a39c3641d0cce08d5540c580d65ebec3\AndroidManifest.xml:28:22-89
+uses-permission#com.anddoes.launcher.permission.UPDATE_COUNT
+ADDED from [me.leolin:ShortcutBadger:1.1.21] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.21.aar\a39c3641d0cce08d5540c580d65ebec3\AndroidManifest.xml:31:5-84
+	android:name
+		ADDED from [me.leolin:ShortcutBadger:1.1.21] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.21.aar\a39c3641d0cce08d5540c580d65ebec3\AndroidManifest.xml:31:22-81
+uses-permission#com.majeur.launcher.permission.UPDATE_BADGE
+ADDED from [me.leolin:ShortcutBadger:1.1.21] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.21.aar\a39c3641d0cce08d5540c580d65ebec3\AndroidManifest.xml:34:5-83
+	android:name
+		ADDED from [me.leolin:ShortcutBadger:1.1.21] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.21.aar\a39c3641d0cce08d5540c580d65ebec3\AndroidManifest.xml:34:22-80
+uses-permission#com.huawei.android.launcher.permission.CHANGE_BADGE
+ADDED from [me.leolin:ShortcutBadger:1.1.21] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.21.aar\a39c3641d0cce08d5540c580d65ebec3\AndroidManifest.xml:37:5-91
+	android:name
+		ADDED from [me.leolin:ShortcutBadger:1.1.21] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.21.aar\a39c3641d0cce08d5540c580d65ebec3\AndroidManifest.xml:37:22-88
+uses-permission#com.huawei.android.launcher.permission.READ_SETTINGS
+ADDED from [me.leolin:ShortcutBadger:1.1.21] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.21.aar\a39c3641d0cce08d5540c580d65ebec3\AndroidManifest.xml:38:5-92
+	android:name
+		ADDED from [me.leolin:ShortcutBadger:1.1.21] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.21.aar\a39c3641d0cce08d5540c580d65ebec3\AndroidManifest.xml:38:22-89
+uses-permission#com.huawei.android.launcher.permission.WRITE_SETTINGS
+ADDED from [me.leolin:ShortcutBadger:1.1.21] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.21.aar\a39c3641d0cce08d5540c580d65ebec3\AndroidManifest.xml:39:5-93
+	android:name
+		ADDED from [me.leolin:ShortcutBadger:1.1.21] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.21.aar\a39c3641d0cce08d5540c580d65ebec3\AndroidManifest.xml:39:22-90
+uses-permission#android.permission.READ_APP_BADGE
+ADDED from [me.leolin:ShortcutBadger:1.1.21] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.21.aar\a39c3641d0cce08d5540c580d65ebec3\AndroidManifest.xml:42:5-73
+	android:name
+		ADDED from [me.leolin:ShortcutBadger:1.1.21] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.21.aar\a39c3641d0cce08d5540c580d65ebec3\AndroidManifest.xml:42:22-70
+uses-permission#com.oppo.launcher.permission.READ_SETTINGS
+ADDED from [me.leolin:ShortcutBadger:1.1.21] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.21.aar\a39c3641d0cce08d5540c580d65ebec3\AndroidManifest.xml:45:5-82
+	android:name
+		ADDED from [me.leolin:ShortcutBadger:1.1.21] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.21.aar\a39c3641d0cce08d5540c580d65ebec3\AndroidManifest.xml:45:22-79
+uses-permission#com.oppo.launcher.permission.WRITE_SETTINGS
+ADDED from [me.leolin:ShortcutBadger:1.1.21] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.21.aar\a39c3641d0cce08d5540c580d65ebec3\AndroidManifest.xml:46:5-83
+	android:name
+		ADDED from [me.leolin:ShortcutBadger:1.1.21] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.21.aar\a39c3641d0cce08d5540c580d65ebec3\AndroidManifest.xml:46:22-80
+uses-permission#me.everything.badger.permission.BADGE_COUNT_READ
+ADDED from [me.leolin:ShortcutBadger:1.1.21] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.21.aar\a39c3641d0cce08d5540c580d65ebec3\AndroidManifest.xml:49:5-88
+	android:name
+		ADDED from [me.leolin:ShortcutBadger:1.1.21] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.21.aar\a39c3641d0cce08d5540c580d65ebec3\AndroidManifest.xml:49:22-85
+uses-permission#me.everything.badger.permission.BADGE_COUNT_WRITE
+ADDED from [me.leolin:ShortcutBadger:1.1.21] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.21.aar\a39c3641d0cce08d5540c580d65ebec3\AndroidManifest.xml:50:5-89
+	android:name
+		ADDED from [me.leolin:ShortcutBadger:1.1.21] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.21.aar\a39c3641d0cce08d5540c580d65ebec3\AndroidManifest.xml:50:22-86
+meta-data#android.support.VERSION
+ADDED from [com.android.support:support-v4:26.1.0] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\ecfd8d83a4af3451d6bd3e2b43bb82d9\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.1.0.aar\b9fffea2b188db2ae80466fe8696f58f\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.1.0.aar\b9fffea2b188db2ae80466fe8696f58f\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\support-fragment-26.1.0.aar\74ad726e763efe5235fa14103cda7efd\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\support-fragment-26.1.0.aar\74ad726e763efe5235fa14103cda7efd\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.1.0.aar\d66f5d2c8a43b56b49b0fe5c79dbbefb\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.1.0.aar\d66f5d2c8a43b56b49b0fe5c79dbbefb\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.1.0.aar\d18287577b5e8b83a577e216e40e8fe3\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.1.0.aar\d18287577b5e8b83a577e216e40e8fe3\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-compat:26.1.0] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\support-compat-26.1.0.aar\469ea0e90127fc0d882b50bfd4bc4054\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-compat:26.1.0] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\support-compat-26.1.0.aar\469ea0e90127fc0d882b50bfd4bc4054\AndroidManifest.xml:26:9-28:38
+	android:value
+		ADDED from [com.android.support:support-v4:26.1.0] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\ecfd8d83a4af3451d6bd3e2b43bb82d9\AndroidManifest.xml:28:13-35
+	android:name
+		ADDED from [com.android.support:support-v4:26.1.0] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\ecfd8d83a4af3451d6bd3e2b43bb82d9\AndroidManifest.xml:27:13-51
+meta-data#android.arch.lifecycle.VERSION
+ADDED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\6022d0f6438dc08d4048093f8882b5f1\AndroidManifest.xml:25:9-27:47
+	android:value
+		ADDED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\6022d0f6438dc08d4048093f8882b5f1\AndroidManifest.xml:27:13-44
+	android:name
+		ADDED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\yuliaf\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\6022d0f6438dc08d4048093f8882b5f1\AndroidManifest.xml:26:13-58

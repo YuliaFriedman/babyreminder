@@ -7,9 +7,10 @@ import { AppComponent } from './app.component';
 import {
   MatCheckboxModule, MatDialogModule,
   MatFormField, MatFormFieldControl, MatFormFieldModule, MatIconModule, MatInputModule, MatOptionModule,
+  MatProgressSpinnerModule,
   MatSelectModule, MatSidenav,
   MatSidenavModule,
-  MatSlideToggleModule,
+  MatSlideToggleModule, MatSpinner,
   MatTabsModule
 } from "@angular/material";
 
@@ -27,6 +28,26 @@ import {MessagesComponent} from "./messagesComponent/messages.component";
 import {ContactsListComponent} from "./tasksComponent/contactsListComponent/contacts.list.component";
 import {AppFeatureSupportService} from "./services/appFeaturesSuppertService";
 import {LogService} from "./services/LogService";
+import {TasksTimer} from "./services/TasksTimerService";
+import {TaskAlertComponent} from "./alertsComponent/taskAlertComponent/task.alert.component";
+import {EventsManager} from "./services/AppEventsManager";
+import {BackgroundManager} from "./services/BackgroundManager";
+import {TesterComponent} from "./tasksComponent/testerComponent/tester.component";
+
+declare global {
+  interface Navigator {
+    contacts: any;
+  }
+}
+
+
+declare global {
+  interface Window {
+    wakeuptimer: any,
+    cordova: any
+  }
+}
+
 
 @NgModule({
   declarations: [
@@ -36,7 +57,9 @@ import {LogService} from "./services/LogService";
     TaskItemComponent,
     AddTaskComponent,
     MessagesComponent,
-    ContactsListComponent
+    ContactsListComponent,
+    TaskAlertComponent,
+    TesterComponent
   ],
   imports: [
     BrowserModule,
@@ -49,6 +72,7 @@ import {LogService} from "./services/LogService";
     MatIconModule,
     MatCheckboxModule,
     MatDialogModule,
+    MatProgressSpinnerModule,
     ReactiveFormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
@@ -56,7 +80,16 @@ import {LogService} from "./services/LogService";
     AppRouterModule,
     NgbModule.forRoot()
   ],
-  providers: [DataProvider, AppUtils, AppFeatureSupportService, LogService, {provide: APP_BASE_HREF, useValue : '/' }], //, AppStore
+  providers: [
+    DataProvider,
+    AppUtils,
+    AppFeatureSupportService,
+    LogService,
+    TasksTimer,
+    EventsManager,
+    BackgroundManager,
+    {provide: APP_BASE_HREF, useValue : '/' }
+    ], //, AppStore
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -7,13 +7,19 @@
         "files": {}
     },
     "installed_plugins": {
-        "cordova-plugin-whitelist": {
+        "cordova-plugin-lock-info": {
             "PACKAGE_NAME": "io.cordova.hellocordova"
         },
-        "cordova-plugin-background-mode": {
+        "phonegap-plugin-local-notification": {
             "PACKAGE_NAME": "io.cordova.hellocordova"
         },
-        "cordova-plugin-contacts": {
+        "com.uniclau.alarmplugin": {
+            "PACKAGE_NAME": "io.cordova.hellocordova"
+        },
+        "cordova-plugin-badge": {
+            "PACKAGE_NAME": "io.cordova.hellocordova"
+        },
+        "cordova-plugin-local-notification": {
             "PACKAGE_NAME": "io.cordova.hellocordova"
         }
     },

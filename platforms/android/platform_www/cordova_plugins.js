@@ -88,6 +88,54 @@ module.exports = [
     "merges": [
       ""
     ]
+  },
+  {
+    "id": "org.nypr.cordova.wakeupplugin.Wakeup",
+    "file": "plugins/org.nypr.cordova.wakeupplugin/www/wakeup.js",
+    "pluginId": "org.nypr.cordova.wakeupplugin",
+    "clobbers": [
+      "wakeuptimer"
+    ]
+  },
+  {
+    "id": "cordova-plugin-lock-info.lockinfo",
+    "file": "plugins/cordova-plugin-lock-info/www/lock-info.js",
+    "pluginId": "cordova-plugin-lock-info",
+    "clobbers": [
+      "cordova.plugins.lockInfo"
+    ]
+  },
+  {
+    "id": "phonegap-plugin-local-notification.Notification",
+    "file": "plugins/phonegap-plugin-local-notification/www/notification.js",
+    "pluginId": "phonegap-plugin-local-notification",
+    "clobbers": [
+      "Notification"
+    ]
+  },
+  {
+    "id": "com.uniclau.alarmplugin.AlarmPlugin",
+    "file": "plugins/com.uniclau.alarmplugin/www/alarmplugin.js",
+    "pluginId": "com.uniclau.alarmplugin",
+    "clobbers": [
+      "navigator.plugins.alarm"
+    ]
+  },
+  {
+    "id": "cordova-plugin-badge.Badge",
+    "file": "plugins/cordova-plugin-badge/www/badge.js",
+    "pluginId": "cordova-plugin-badge",
+    "clobbers": [
+      "cordova.plugins.notification.badge"
+    ]
+  },
+  {
+    "id": "cordova-plugin-local-notification.LocalNotification",
+    "file": "plugins/cordova-plugin-local-notification/www/local-notification.js",
+    "pluginId": "cordova-plugin-local-notification",
+    "clobbers": [
+      "cordova.plugins.notification.local"
+    ]
   }
 ];
 module.exports.metadata = 
@@ -96,7 +144,13 @@ module.exports.metadata =
   "cordova-plugin-whitelist": "1.3.3",
   "cordova-plugin-device": "2.0.1",
   "cordova-plugin-background-mode": "0.7.2",
-  "cordova-plugin-contacts": "2.0.1"
+  "cordova-plugin-contacts": "2.0.1",
+  "org.nypr.cordova.wakeupplugin": "0.1.0",
+  "cordova-plugin-lock-info": "0.0.1",
+  "phonegap-plugin-local-notification": "1.0.1",
+  "com.uniclau.alarmplugin": "0.1.0",
+  "cordova-plugin-badge": "0.8.7",
+  "cordova-plugin-local-notification": "0.9.0-beta.2"
 };
 // BOTTOM OF METADATA
 });

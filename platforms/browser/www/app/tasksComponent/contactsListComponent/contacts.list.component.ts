@@ -1,14 +1,15 @@
-import {ChangeDetectorRef, Component, ElementRef, Inject, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, ElementRef, Inject, NgZone, OnInit} from '@angular/core';
 import {Contact, Days, Task, Time} from "../../models/task";
 import {AppUtils} from "../../services/AppUtils";
 import index from "@angular/cli/lib/cli";
-import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from "@angular/material";
+import {MAT_DIALOG_DATA, MatDialog, MatDialogRef, ProgressSpinnerMode} from "@angular/material";
 import {DataProvider} from "../../services/DataProvider";
 
 import {FormControl, Validators} from '@angular/forms';
 import {Router} from "@angular/router";
 import {Location} from '@angular/common';
 import {AppFeatureSupportService} from "../../services/appFeaturesSuppertService";
+import {LogService} from "../../services/LogService";
 
 @Component({
   selector: 'contacts-list',
@@ -27,18 +28,24 @@ export class ContactsListComponent implements OnInit{
   filteredContacts: Contact[];
   searchValue:string;
 
-  constructor(private dataProvider: DataProvider, private router:Router, private _location: Location, private _changeDetectorRef: ChangeDetectorRef){
+  waitingForContacts = true;
+
+  constructor(private dataProvider: DataProvider, private router:Router, private _location: Location, private _changeDetectorRef: ChangeDetectorRef, private _logService: LogService,
+              private zone:NgZone){
 
   }
 
   ngOnInit(): void {
     this.dataProvider.getContacts().subscribe(next => {
-      this.contacts = next;
-      this._changeDetectorRef.detectChanges();
+        this.contacts = next;
+        this._logService.log("Contacts (in contacts list component): ", this.contacts);
+        //this._changeDetectorRef.detectChanges();
+        this.filteredContacts = this.contacts;
+        this.waitingForContacts = false;
     }, error => {
       this.getContactsError = error;
     });
-    this.filteredContacts = this.contacts;
+    //this.filteredContacts = this.contacts;
   }
 
 
@@ -79,16 +86,23 @@ export class ContactsListComponent implements OnInit{
       return;
     }
 
+    this.newContact.name = this.newContactName.value;
+    this.newContact.phone = this.newContactPhone.value;
+    this.newContact.isSelected = true;
     this.newContact.isNew = false;
     this.contacts.splice(0, 0, this.newContact);
     this.newContact = null;
   }
 
-  toggleContactSelection(contact: Contact){
+  toggleContactSelection(contact: Contact, event){
     contact.isSelected = !contact.isSelected;
+    event.preventDefault();
   }
 
   saveContacts(){
+    //var selectedContacts = [];
+    var selectedContacts = this.contacts.filter(item => item.isSelected );
+    this.dataProvider.setContactsInNewTask(selectedContacts);
     this._location.back();
   }
 

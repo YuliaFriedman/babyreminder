@@ -100,6 +100,68 @@ module.exports = [
         "merges": [
             ""
         ]
+    },
+    {
+        "file": "plugins/org.nypr.cordova.wakeupplugin/www/wakeup.js",
+        "id": "org.nypr.cordova.wakeupplugin.Wakeup",
+        "pluginId": "org.nypr.cordova.wakeupplugin",
+        "clobbers": [
+            "wakeuptimer"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-lock-info/www/lock-info.js",
+        "id": "cordova-plugin-lock-info.lockinfo",
+        "pluginId": "cordova-plugin-lock-info",
+        "clobbers": [
+            "cordova.plugins.lockInfo"
+        ]
+    },
+    {
+        "file": "plugins/phonegap-plugin-local-notification/www/notification.js",
+        "id": "phonegap-plugin-local-notification.Notification",
+        "pluginId": "phonegap-plugin-local-notification",
+        "clobbers": [
+            "Notification"
+        ]
+    },
+    {
+        "file": "plugins/com.uniclau.alarmplugin/www/alarmplugin.js",
+        "id": "com.uniclau.alarmplugin.AlarmPlugin",
+        "pluginId": "com.uniclau.alarmplugin",
+        "clobbers": [
+            "navigator.plugins.alarm"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-badge/www/badge.js",
+        "id": "cordova-plugin-badge.Badge",
+        "pluginId": "cordova-plugin-badge",
+        "clobbers": [
+            "cordova.plugins.notification.badge"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-badge/src/browser/favico.min.js",
+        "id": "cordova-plugin-badge.Badge.Favico",
+        "pluginId": "cordova-plugin-badge",
+        "clobbers": [
+            "cordova.plugins.notification.badge.Favico"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-badge/src/browser/BadgeProxy.js",
+        "id": "cordova-plugin-badge.Badge.Proxy",
+        "pluginId": "cordova-plugin-badge",
+        "runs": true
+    },
+    {
+        "file": "plugins/cordova-plugin-local-notification/www/local-notification.js",
+        "id": "cordova-plugin-local-notification.LocalNotification",
+        "pluginId": "cordova-plugin-local-notification",
+        "clobbers": [
+            "cordova.plugins.notification.local"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -108,7 +170,13 @@ module.exports.metadata =
     "cordova-plugin-device": "2.0.1",
     "cordova-plugin-background-mode": "0.7.2",
     "cordova-plugin-contacts": "2.0.1",
-    "cordova-plugin-whitelist": "1.3.3"
+    "cordova-plugin-whitelist": "1.3.3",
+    "org.nypr.cordova.wakeupplugin": "0.1.0",
+    "cordova-plugin-lock-info": "0.0.1",
+    "phonegap-plugin-local-notification": "1.0.1",
+    "com.uniclau.alarmplugin": "0.1.0",
+    "cordova-plugin-badge": "0.8.7",
+    "cordova-plugin-local-notification": "0.9.0-beta.2"
 }
 // BOTTOM OF METADATA
 });
