@@ -3,53 +3,40 @@ import {AppFeatureSupportService} from "./appFeaturesSuppertService";
 import {cordova} from "../globalDeclarations";
 import {EventsManager, IEventHandler} from "./AppEventsManager";
 import {AppConstants} from "../appConstants";
+import {ActionGroups, NewNotification, NotificationType} from "../models/notificationInfo";
+import {Task} from "../models/task";
 
 @Injectable()
-export class BackgroundManager implements IEventHandler{
+export class BackgroundManager implements IEventHandler {
 
-  constructor(private appFeatureSupportService: AppFeatureSupportService, private eventsManager:EventsManager){
+  constructor(private appFeatureSupportService: AppFeatureSupportService, private eventsManager: EventsManager) {
 
-      if(appFeatureSupportService.hasBackgroundService()){
-        window.cordova.plugins.backgroundMode.on('activate', function () {
-          window.cordova.plugins.backgroundMode.disableWebViewOptimizations();
-        });
-        window.cordova.plugins.backgroundMode.overrideBackButton();
-        window.cordova.plugins.backgroundMode.enable();
+    if (appFeatureSupportService.hasBackgroundService()) {
+      window.cordova.plugins.backgroundMode.on('activate', function () {
+        window.cordova.plugins.backgroundMode.disableWebViewOptimizations();
+      });
+      window.cordova.plugins.backgroundMode.overrideBackButton();
+      window.cordova.plugins.backgroundMode.enable();
 
-        eventsManager.subscribeEvent(AppConstants.eventTypes.wakeAppEvent, this);
-      }
+      eventsManager.subscribeEvent(AppConstants.eventTypes.wakeupEvent, this);
+    }
   }
 
   handleEvent(eventType: string, data: any) {
-    if(eventType == AppConstants.eventTypes.wakeAppEvent){
+    if (eventType == AppConstants.eventTypes.wakeupEvent) {
 
       window.cordova.plugins.lockInfo.isLocked(
         (isLocked) => {
-            if(isLocked){
-              // if ("Notification" in window) {
-              //   Notification.requestPermission(function (permission) {
-              //     // If the user accepts, let’s create a notification
-              //     if (permission === "granted") {
-              //       var notification = new Notification("My title", {
-              //         tag: "message1",
-              //         body: "My body"
-              //       });
-              //       notification.onshow  = function() { console.log("show"); };
-              //       notification.onclose = function() { console.log("close"); };
-              //       notification.onclick = function() { console.log("click"); };
-              //     }
-              //   });
-              // }
 
-              window.cordova.plugins.notification.local.schedule({
-                title: 'My first notification',
-                text: 'Thats pretty easy...',
-                foreground: true
-              });
-            }
-            else{
-              window.cordova.plugins.backgroundMode.moveToForeground();
-            }
+          let notification = new NewNotification();
+          notification.type = NotificationType.TaskCompletedAlert;
+          notification.data = data;
+
+          if (isLocked) {
+            this.eventsManager.handleEvent(AppConstants.eventTypes.notification, notification);
+          }
+          window.cordova.plugins.backgroundMode.moveToForeground();
+          this.eventsManager.handleEvent(AppConstants.eventTypes.alert, notification);
         },
         () => {
 

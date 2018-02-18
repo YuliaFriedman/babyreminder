@@ -6,6 +6,8 @@ import {ErrorType, Error} from "../models/errors";
 import {Injectable, NgZone} from "@angular/core";
 import {LogService} from "./LogService";
 import {TasksTimer} from "./TasksTimerService";
+import {AppConstants} from "../appConstants";
+import {EventsManager} from "./AppEventsManager";
 //import {setTimeout} from "timers";
 
 @Injectable()
@@ -14,7 +16,8 @@ export class DataProvider{
   tasks;
   newTask: Task;
 
-  constructor(private _appFeatureSupportService: AppFeatureSupportService, private _logService: LogService, private zone:NgZone, private tasksTimer: TasksTimer){
+  constructor(private _appFeatureSupportService: AppFeatureSupportService, private _logService: LogService, private zone:NgZone,
+              private eventsManager:EventsManager){
 
   }
 
@@ -35,7 +38,8 @@ export class DataProvider{
       this.tasks.push(task);
       this.newTask = null;
       task.timerState.setType(TimerType.Alarm);
-      this.tasksTimer.setAlarms(this.tasks);
+      //this.tasksTimer.setAlarms(this.tasks);
+      this.eventsManager.handleEvent(AppConstants.eventTypes.setAlarm, this.tasks);
       resolve();
     });
     return promise;

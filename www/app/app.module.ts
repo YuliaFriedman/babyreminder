@@ -33,6 +33,7 @@ import {TaskAlertComponent} from "./alertsComponent/taskAlertComponent/task.aler
 import {EventsManager} from "./services/AppEventsManager";
 import {BackgroundManager} from "./services/BackgroundManager";
 import {TesterComponent} from "./tasksComponent/testerComponent/tester.component";
+import {NotificationsService} from "./services/NotificationsService";
 
 declare global {
   interface Navigator {
@@ -88,6 +89,7 @@ declare global {
     TasksTimer,
     EventsManager,
     BackgroundManager,
+    NotificationsService,
     {provide: APP_BASE_HREF, useValue : '/' }
     ], //, AppStore
   bootstrap: [AppComponent]

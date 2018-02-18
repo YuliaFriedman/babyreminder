@@ -1,7 +1,10 @@
 export const AppConstants = {
 
   eventTypes:{
-    wakeAppEvent: "wake_app_event"
+    wakeupEvent: "wake_app_event",
+    notification: "notification",
+    alert: "alert",
+    setAlarm: "set_alarm"
   }
 
 }

@@ -27,4 +27,10 @@ export class AppFeatureSupportService{
     return hasBackgroundService;
   }
 
+  hasLocalNotifications(): boolean{
+    let hasLocalNotifications = !this.appUtils.nullOrUndefined(window.cordova) && !this.appUtils.nullOrUndefined(window.cordova.plugins) && !this.appUtils.nullOrUndefined(window.cordova.plugins.notification) && !this.appUtils.nullOrUndefined(window.cordova.plugins.notification.local);
+    console.log("has local notifications = " + hasLocalNotifications);
+    return hasLocalNotifications;
+  }
+
 }

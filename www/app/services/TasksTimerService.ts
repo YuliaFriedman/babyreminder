@@ -2,15 +2,24 @@ import {AppFeatureSupportService} from "./appFeaturesSuppertService";
 import {DataProvider} from "./DataProvider";
 import {TimerType, Task, Days} from "../models/task";
 import {Injectable, NgZone} from "@angular/core";
-import {EventsManager} from "./AppEventsManager";
+import {EventsManager, IEventHandler} from "./AppEventsManager";
 import {AppConstants} from "../appConstants";
 
 
 @Injectable()
-export class TasksTimer {
+export class TasksTimer implements IEventHandler{
 
   constructor(private appFeatureSupportService: AppFeatureSupportService, private eventsManager:EventsManager,  private zone:NgZone) {
     //this.setAlarms();
+    eventsManager.subscribeEvent(AppConstants.eventTypes.setAlarm, this);
+  }
+
+  handleEvent(eventType: string, data: any) {
+    switch (eventType){
+      case AppConstants.eventTypes.setAlarm:
+        this.setAlarms(data);
+        break;
+    }
   }
 
   setAlarms(tasks: Task[]) {
@@ -18,12 +27,25 @@ export class TasksTimer {
       let alarms = [];
 
       for (let task of tasks) {
-        let days = this.toAlarmDays(task.days);
-        if(days.length > 0){
-          let time = {hour: task.time.hour, minute: task.time.minute};
+        if(task.timerState.type == TimerType.Idle){
+          continue;
+        }
+        else if(task.timerState.type == TimerType.Alarm){
+          let days = this.toAlarmDays(task.getNotCompletedDays());
+          if(days.length > 0){
+            let time = {hour: task.time.hour, minute: task.time.minute};
+            alarms.push({
+              type: 'daylist',
+              days: days,
+              time: time,
+              extra: task
+            });
+          }
+        }
+        else if (task.timerState.type == TimerType.Snooze){
+          let time = {hour: task.timerState.time.hour, minute: task.timerState.time.minute};
           alarms.push({
-            type: 'daylist',
-            days: days,
+            type: 'onetime',
             time: time,
             extra: task
           });
@@ -85,9 +107,9 @@ export class TasksTimer {
   alarmCallbak(result) {
     this.zone.run(() => {
       if (result.type === 'wakeup') {
-        console.log('wakeup alarm detected--', result.extra);
+        console.log('wakeup alarm detected--', result);
         var extra = JSON.parse(result.extra);
-        this.eventsManager.handleEvent(AppConstants.eventTypes.wakeAppEvent, extra);
+        this.eventsManager.handleEvent(AppConstants.eventTypes.wakeupEvent, extra);
       }
       else if (result.type === 'set') {
         console.log('wakeup alarm set--' + result);
