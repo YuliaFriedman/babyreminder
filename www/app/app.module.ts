@@ -34,6 +34,9 @@ import {EventsManager} from "./services/AppEventsManager";
 import {BackgroundManager} from "./services/BackgroundManager";
 import {TesterComponent} from "./tasksComponent/testerComponent/tester.component";
 import {NotificationsService} from "./services/NotificationsService";
+import {TaskDetailsComponent} from "./tasksComponent/taskDetailsComponent/task.details.component";
+import {AppHeaderComponent} from "./headerComponent/app.header.component";
+import { AmazingTimePickerModule } from 'amazing-time-picker';
 
 declare global {
   interface Navigator {
@@ -60,7 +63,9 @@ declare global {
     MessagesComponent,
     ContactsListComponent,
     TaskAlertComponent,
-    TesterComponent
+    TesterComponent,
+    TaskDetailsComponent,
+    AppHeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -75,10 +80,10 @@ declare global {
     MatDialogModule,
     MatProgressSpinnerModule,
     ReactiveFormsModule,
-    ReactiveFormsModule,
     BrowserAnimationsModule,
     FormsModule,
     AppRouterModule,
+    AmazingTimePickerModule,
     NgbModule.forRoot()
   ],
   providers: [

@@ -1,8 +1,15 @@
 <div *ngIf="!appInitialized">
   Initializing...
 </div>
-<app-tabs *ngIf="appInitialized"></app-tabs>
+
+<div class="app_main">
+
+  <app-header></app-header>
+
+  <app-tabs *ngIf="appInitialized"></app-tabs>
+
+</div>
+
+
 
 <task-alert></task-alert>
-
-<tester></tester>

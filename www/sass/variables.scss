@@ -1,17 +1,32 @@
 @import './3rdparty-theme';
 
-$primary-color-dark: #00867d;
-$primary-color: #4db6ac;
-$primary-color-light: #82e9de;
+$primary-color-dark: mat-color($candy-app-accent, 900);//rgb(33, 89, 104);
+$primary-color: mat-color($candy-app-accent, 700);
+$primary-color-light: mat-color($candy-app-accent, 600);;
 
-$primary-text-dark: rgba(0, 0, 0, 0.60);
-$primary-text: rgba(0, 0, 0, 0.48);
+$primary-text-dark: rgba(255, 255, 255, 1);
+$primary-text: rgba(255, 255, 255, 1);
 $primary-text-light: rgba(0, 0, 0, 0.44);
 
-$secondary-color-dark: #373737;
-$secondary-color: #616161;
-$secondary-color-light: #8e8e8e;
+$secondary-color-darkest_2: mat-color($candy-app-primary, 900);
+$secondary-color-dark_2: mat-color($candy-app-primary, A400);
+$secondary-color_2: mat-color($candy-app-primary, A200);//rgb(245, 216, 1);
+$secondary-color-light_2: mat-color($candy-app-primary, A100);
 
-$secondary-text-dark: rgba(255, 255, 255, 0.91);
-$secondary-text: rgba(255, 255, 255, 0.53);
-$secondary-text-light: rgba(255, 255, 255, 0.37);
+
+$secondary-color-dark_1: mat-color($candy-app-secondary, A400);
+$secondary-color_1: mat-color($candy-app-secondary, A200);//rgb(245, 216, 1);
+$secondary-color-light_1: mat-color($candy-app-secondary, A100);
+
+$secondary-text-dark_2: rgb(127, 127, 127);
+$secondary-text_2: rgb(173, 173, 173);
+$secondary-text-light_2: rgb(217, 217, 217);
+
+$secondary-text-weak_2:rgb(127, 127, 127);
+
+$white: rgb(255, 255, 255);
+
+$error_color: #9f0b00;
+
+$bg-color: $secondary-color_2;
+

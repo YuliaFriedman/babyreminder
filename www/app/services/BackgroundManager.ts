@@ -25,23 +25,32 @@ export class BackgroundManager implements IEventHandler {
   handleEvent(eventType: string, data: any) {
     if (eventType == AppConstants.eventTypes.wakeupEvent) {
 
-      window.cordova.plugins.lockInfo.isLocked(
-        (isLocked) => {
+      if(this.appFeatureSupportService.hasLockInfo()){
+        window.cordova.plugins.lockInfo.isLocked(
+          (isLocked) => {
 
-          let notification = new NewNotification();
-          notification.type = NotificationType.TaskCompletedAlert;
-          notification.data = data;
+            let notification = new NewNotification();
+            notification.type = NotificationType.TaskCompletedAlert;
+            notification.data = data;
 
-          if (isLocked) {
-            this.eventsManager.handleEvent(AppConstants.eventTypes.notification, notification);
+            if (isLocked && this.appFeatureSupportService.hasBackgroundService()) {
+              this.eventsManager.handleEvent(AppConstants.eventTypes.notification, notification);
+            }
+            window.cordova.plugins.backgroundMode.moveToForeground();
+            this.eventsManager.handleEvent(AppConstants.eventTypes.alert, notification);
+          },
+          () => {
+
           }
-          window.cordova.plugins.backgroundMode.moveToForeground();
-          this.eventsManager.handleEvent(AppConstants.eventTypes.alert, notification);
-        },
-        () => {
+        );
+      }
+      else{
+        let notification = new NewNotification();
+        notification.type = NotificationType.TaskCompletedAlert;
+        notification.data = data;
+        this.eventsManager.handleEvent(AppConstants.eventTypes.alert, notification);
+      }
 
-        }
-      );
 
 
     }

@@ -6,8 +6,9 @@ import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from "@angular/material";
 import {DataProvider} from "../../services/DataProvider";
 
 import {FormControl, Validators} from '@angular/forms';
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {Location} from "@angular/common";
+import {AmazingTimePickerService} from "amazing-time-picker";
 
 @Component({
   selector: 'add-task',
@@ -16,19 +17,48 @@ import {Location} from "@angular/common";
 })
 export class AddTaskComponent implements OnInit{
 
+
+  origTask:Task;
   task: Task;
   appUtils: AppUtils;
   timePickerModel: any;
   title = new FormControl('', [Validators.required]);
+  isInEdit:boolean;
+  sub: any;
+  sub2:any;
 
-  constructor(appUtils: AppUtils, private _eref: ElementRef, public dialog: MatDialog, private dataProvider: DataProvider, private router:Router, private _location: Location){
+  constructor(
+    appUtils: AppUtils,
+    private _eref: ElementRef,
+    public dialog: MatDialog,
+    private dataProvider: DataProvider,
+    private router:Router,
+    private _location: Location,
+    private route: ActivatedRoute,
+    private atp: AmazingTimePickerService){
     this.appUtils = appUtils;
+    this.origTask = new Task();
   }
 
   ngOnInit(): void {
-    this.task = this.dataProvider.getNewTask();
-    this.timePickerModel = new Time(this.task.time.hour, this.task.time.minute);
-    this.title.setValue(this.task.title);
+    this.sub = this.route.params.subscribe(params => {
+      // edit
+      if(params.hasOwnProperty('id')){
+        this.isInEdit = true;
+        this.sub2 = this.dataProvider.getTaskById(params['id']).subscribe(task => {
+          this.task = task;
+          this.origTask.copy(task);
+          this.timePickerModel = new Time(this.task.time.hour, this.task.time.minute);
+          this.title.setValue(this.task.title);
+        });
+      }
+      else{ // add
+        this.isInEdit = false;
+        this.task = this.dataProvider.getNewTask();
+        this.timePickerModel = new Time(this.task.time.hour, this.task.time.minute);
+        this.title.setValue(this.task.title);
+      }
+    });
   }
 
   toggleDay(day: Days): void{
@@ -49,9 +79,14 @@ export class AddTaskComponent implements OnInit{
     }
     this.saveDataToTask();
 
-    this.dataProvider.saveNewTask(this.task).then(function () {
+    if(!this.isInEdit){
+      this.dataProvider.saveNewTask(this.task).then(function () {
+        this._location.back();
+      }.bind(this));
+    }
+    else{
       this._location.back();
-    }.bind(this));
+    }
   }
 
   triggerValidation(): void{
@@ -77,12 +112,28 @@ export class AddTaskComponent implements OnInit{
   }
 
   cancel(){
+    this.task.copy(this.origTask);
     this._location.back();
   }
 
   openContactsList(){
     this.saveDataToTask();
     this.router.navigateByUrl('/contacts');
+  }
+
+  openTimePicker(){
+    const amazingTimePicker = this.atp.open({
+      time: this.task.time.toString(),
+      arrowStyle: {
+        background: '#60c1ce',
+        color: "white"
+      }
+    });
+    amazingTimePicker.afterClose().subscribe(time => {
+      let result = time.split(":");
+      this.task.time.hour = +result[0];
+      this.task.time.minute = +result[1];
+    });
   }
 
 }

@@ -1,17 +1,16 @@
 @import '../../../sass/variables.scss';
+@import '../../shared.scss';
 
 .add_task_container{
   display: flex;
   flex-direction: column;
   height: 100%;
+  color: $secondary-text_2;
 }
 
 .content_container{
   flex: 1;
   overflow-y: auto;
-}
-
-.add_task_container > *:not(#buttonsContainer){
   margin-left: 10px;
   margin-right: 10px;
 }
@@ -23,6 +22,9 @@
 #timePickerContainer{
   text-align: center;
   margin: 0 auto;
+  color: $primary-color;
+  font-size: 30px;
+  font-weight: bold;
 }
 
 #timePicker{
@@ -38,33 +40,17 @@ input{
 #daysContainer{
   display: flex;
   margin-top: 10px;
+  justify-content: space-between;
 }
 
 #daysContainer > *{
-  flex: 1;
   text-align: center;
-}
-
-.day_button{
-  display: inline-block;
-  border: 1px solid rgb(217, 217, 217);
-  border-radius: 20px;
-  width: 30px;
-  padding: 5px 0px;
-  text-align: center;
-  margin-right: 5px;
-  cursor: pointer;
-}
-
-.day_selected{
-  background: mat-color($candy-app-accent);
-  color: white;
 }
 
 #repeatContainer{
   padding: 15px 0px 0px 0px;
   margin: 20px 0px 0px 0px;
-  border-top: 1px solid white;
+  border-top: 1px solid #c0bfbf;
 }
 
 #repeatCheckbox{
@@ -75,7 +61,7 @@ input{
 }
 
 #shareContactsTitleContainer{
-  border-top: 1px solid white;
+  border-top: 1px solid #c0bfbf;
   padding-top: 10px;
   margin-top: 10px;
 }
@@ -102,17 +88,15 @@ input{
 
 
 :host ::ng-deep.btn-link{
-  color: mat-color($candy-app-accent);
+  color: $primary-color-dark;
 }
 
-#buttonsContainer{
-  display: flex;
+.main_ok_button{
+  background-image: url('../../../assets/ok_colorful.png');
+  background-position: 36px 37px;
+  background-size: 20px;
 }
 
-#okButton, #cancelButton{
-  flex: 1;
-  padding: 10px;
-  height: 40px;
-  width: 50%;
+.back_button{
+  background-image: url('../../../assets/back.png');
 }
-

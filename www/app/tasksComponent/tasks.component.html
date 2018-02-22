@@ -1,4 +1,10 @@
-<div class="tasks_list_container">
-  <task-item *ngFor="let task of tasks" [task]="task"></task-item>
-  <button class="add_task_button" [routerLink]="'/add'">+</button>
+<div class="tasks_container">
+  <div class="tasks_list_container">
+    <task-item *ngFor="let task of tasks" [task]="task" (click)="navigateToDetails(task.id)"></task-item>
+    <!--<button class="add_task_button" [routerLink]="'/add'">+</button>-->
+  </div>
+
+  <div class="confirm_buttons_contaner">
+    <button class="main_ok_button" [routerLink]="'/add'"></button>
+  </div>
 </div>

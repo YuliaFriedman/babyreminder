@@ -1,22 +1,22 @@
 @import '../../sass/variables';
+@import'../shared';
 
 
-.add_task_button{
-  position: absolute;
-  bottom: 20px;
-  border-radius: 30px;
-  border: 0px;
-  width: 50px;
-  height: 50px;
-  background-size: 50px 50px;
-  left: 50%;
-  margin-left: -20px;
-  color: mat-contrast($candy-app-primary, 900);
-  background: mat-color($candy-app-primary);
-  font-size: 18px;
 
+.tasks_container{
+  display: flex;
+  height: 100%;
+  flex-direction: column;
 }
 
-.tasks_list_container{
-  margin: 10px;
+.tasks_list_container
+{
+  padding: 0px 10px;
+  flex:1;
+}
+
+.main_ok_button{
+  background-image: url('../../assets/add_colorful.png');
+  background-position: 36px 35px;
+  background-size: 20px;
 }

@@ -45,14 +45,18 @@
             <mat-checkbox class="selectedCheckbox" [(ngModel)]="contact.isSelected"></mat-checkbox>
           </div>
         </div>
+
+        <div class="horizontal_line_separator"></div>
+
       </div>
+
 
     </div>
   </div>
 
   <div id="buttonsContainer">
-    <button id="cancelButton" class="secondary_button" (click)="cancel()">Cancel</button>
-    <button id="okButton" class="primary_button" (click)="saveContacts()">OK</button>
+    <button class="back_button" (click)="cancel()"></button>
+    <button class="main_ok_button"  (click)="saveContacts()"></button>
   </div>
 
 </div>

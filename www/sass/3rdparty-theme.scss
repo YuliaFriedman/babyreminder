@@ -1,7 +1,5 @@
 @import '~@angular/material/theming';
 
-
-
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
@@ -12,12 +10,84 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue.
-$candy-app-primary: mat-palette($mat-grey, 800, 900, 100);
+
+$custom-primary-palette: (
+  50: rgb(202, 252, 255),
+  100: rgb(148, 255, 253),
+  200: rgb(117, 255, 243),
+  300: rgb(104, 228, 241),
+  400: rgb(102, 223, 236),
+  500: rgb(101, 218, 231),
+  600: rgb(97, 207, 220),
+  700: rgb(96, 193, 206),
+  800: rgb(96, 193, 206),
+  900: rgb(96, 193, 206),
+  A100: rgb(125, 255, 250), //(150)
+  A200: rgb(113, 255, 238),
+  A400: rgb(101, 223, 236),
+  A700: rgb(96, 193, 206),
+  contrast: (
+    50: $light-secondary-text,
+    100: $light-secondary-text,
+    200: $light-primary-text,
+    300: $light-primary-text,
+    400: $light-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $light-primary-text,
+    A200: $light-primary-text,
+    A400: $light-primary-text,
+    A700: $light-primary-text,
+  )
+);
+
+
+$custom-secondary-palette: (
+  50: rgb(202, 252, 255),
+  100: rgb(148, 255, 253),
+  200: rgb(117, 255, 243),
+  300: rgb(104, 228, 241),
+  400: rgb(102, 223, 236),
+  500: rgb(101, 218, 231),
+  600: rgb(97, 207, 220),
+  700: rgb(92, 162, 174),
+  800: rgb(69, 127, 137),
+  900: rgb(44, 77, 89),
+  A100: rgb(125, 255, 250), //(150)
+  A200: rgb(113, 255, 238),
+  A400: rgb(101, 223, 236),
+  A700: rgb(96, 193, 206),
+  contrast: (
+    50: $light-secondary-text,
+    100: $light-secondary-text,
+    200: $light-primary-text,
+    300: $light-primary-text,
+    400: $light-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $light-primary-text,
+    A200: $light-primary-text,
+    A400: $light-primary-text,
+    A700: $light-primary-text,
+  )
+);
+
+
+$candy-app-primary: mat-palette($mat-grey, A200, A100, A400);
 //$candy-app-accent:  mat-palette($mat-cyan, A200, A100, A400);
-$candy-app-accent:  mat-palette($mat-teal, 400, 100, 700);
+$candy-app-accent:  mat-palette($custom-primary-palette, 700, 300, 900);
+
+$candy-app-secondary: mat-palette($mat-amber, A200, A100, A400);
+
 
 // The warn palette is optional (defaults to red).
-$candy-app-warn:    mat-palette($mat-red);
+$candy-app-warn:    mat-palette($mat-red, 900, 900, 900);
 
 // Create the theme object (a Sass map containing all of the palettes).
 $candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent, $candy-app-warn);

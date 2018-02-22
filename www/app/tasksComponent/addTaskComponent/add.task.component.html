@@ -7,8 +7,9 @@
       </mat-form-field>
     </div>
 
-    <div id="timePickerContainer">
-      <ngb-timepicker [(ngModel)]="timePickerModel" required id="timePicker"></ngb-timepicker>
+    <div id="timePickerContainer" (click)="openTimePicker()">
+      {{task.time.toString()}}
+      <!--<ngb-timepicker [(ngModel)]="timePickerModel" required id="timePicker"></ngb-timepicker>-->
     </div>
 
     <div>
@@ -43,9 +44,9 @@
     </div>
   </div>
 
-  <div id="buttonsContainer">
-    <button id="cancelButton" class="secondary_button" (click)="cancel()">Cancel</button>
-    <button id="okButton" class="primary_button" (click)="saveTask()">OK</button>
+  <div class="confirm_buttons_contaner">
+    <button class="back_button" (click)="cancel()"></button>
+    <button class="main_ok_button"  (click)="saveTask()"></button>
   </div>
 
 </div>

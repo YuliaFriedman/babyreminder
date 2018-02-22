@@ -31,6 +31,35 @@ export class DataProvider{
     });
   }
 
+  getTaskById(id:string): Observable<Task> {
+
+    return new Observable((observer) => {
+      if (this.tasks) {
+        for (let task of this.tasks) {
+          if (task.id == id) {
+            observer.next(task);
+            observer.complete();
+          }
+        }
+        observer.next(null);
+        observer.complete();
+      }
+      else {
+        let sub = this.getTasks().subscribe(tasks => {
+          sub.unsubscribe();
+          for (let task of this.tasks) {
+            if (task.id == id) {
+              observer.next(task);
+              observer.complete();
+            }
+          }
+          observer.next(null);
+          observer.complete();
+        });
+      }
+    });
+  }
+
 
   saveNewTask(task:Task): Promise<void>{
     // save in server

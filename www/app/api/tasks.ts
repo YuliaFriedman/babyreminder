@@ -13,8 +13,9 @@ function getTask(title, time, days, contacts, repeat, isEnabled){
   return task2;
 }
 
+tasks = [getTask("task1", new Time(7, 7), [Days.Friday, Days.Saturday], [new Contact("Danny", "0546683722")], true, false)];
 
-// tasks = [getTask("task1", new Time(7, 7), [Days.Friday, Days.Saturday], [new Contact("Danny", "0546683722")], true, false),
+ //tasks = [getTask("task1", new Time(7, 7), [Days.Friday, Days.Saturday], [new Contact("Danny", "0546683722")], true, false),
 // getTask("task2", new Time(7, 7), [Days.Friday, Days.Saturday], [new Contact("Danny", "0546683722")], false, false),
 // getTask("task3", new Time(7, 7), [Days.Friday, Days.Saturday], [new Contact("Danny", "0546683722")], true, true),
 // getTask("task4", new Time(7, 7), [Days.Friday, Days.Saturday], [new Contact("Danny", "0546683722")], true, false),

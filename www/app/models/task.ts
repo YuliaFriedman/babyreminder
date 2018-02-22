@@ -28,6 +28,19 @@ export class Task {
     this.completedDays = [];
   }
 
+  copy(task:Task){
+    this.id = task.id;
+    this.title = task.title;
+    this.days = task.days.map(x => x);
+    this.time.hour = task.time.hour;
+    this.time.minute = task.time.minute;
+    this.isEnabled = task.isEnabled;
+    this.repeat = task.repeat;
+    this.contacts = task.contacts.map(x => new Contact(x.name,x.phone));
+    this.timerState = Object.assign(this.timerState, task.timerState);
+    this.completedDays = task.completedDays.map(x => x);
+  }
+
   snoozeTask(){
     this.timerState.setType(TimerType.Snooze);
     this.timerState.addSnooze(this.time);
@@ -60,7 +73,28 @@ export class Task {
     return result;
   }
 
+  getNextAlarmDay(){
+    return "";
+  }
 
+  getDayLeter(day:Days){
+    switch (day){
+      case Days.Sunday:
+        return 'S';
+      case Days.Monday:
+        return 'M';
+      case Days.Tuesday:
+        return 'T';
+      case Days.Wednesday:
+        return 'W';
+      case Days.Thursday:
+        return 'Th';
+      case Days.Friday:
+        return 'F';
+      case Days.Saturday:
+        return 'Sa';
+    }
+  }
 }
 
 export enum Days {

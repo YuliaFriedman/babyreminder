@@ -1,0 +1,121 @@
+@import "../sass/variables";
+
+.day_button{
+  display: inline-block;
+  border: 0px;
+  border-radius: 20px;
+  width: 28px;
+  padding: 5px 0px;
+  text-align: center;
+
+  background: $secondary-color-dark_2;
+  color: white;
+}
+
+.day_selected{
+  color: $white;
+  background: $primary-color;
+}
+
+.confirm_buttons_contaner{
+  overflow: hidden;
+}
+
+.main_ok_button{
+  background: $secondary-color_1;
+  border: 0px;
+  height: 180px;
+  width: 180px;
+  float: right;
+  border-radius: 90px;
+  margin-right: -100px;
+  margin-bottom: -100px;
+  -webkit-box-shadow: -1px -1px 5px 0px rgba(189,189,189,1);
+  -moz-box-shadow: -1px -1px 5px 0px rgba(189,189,189,1);
+  box-shadow: -1px -1px 5px 0px rgba(189,189,189,1);
+  background-repeat: no-repeat;
+  outline: none;
+
+}
+
+.back_button{
+  background: $secondary-color-darkest_2;
+  border: 0px;
+  height: 30px;
+  width: 30px;
+  border-radius: 30px;
+  background-repeat: no-repeat;
+  background-size: 7px;
+  background-position: 10px;
+
+  margin-top: 25px;
+  margin-left: 25px;
+}
+
+.sub_title{
+  color: $secondary-text_2;
+}
+
+
+.primary_button{
+  background: mat-color($candy-app-accent);
+  border: 0px;
+  padding: 5px;
+  color: mat-contrast($candy-app-accent, 900);
+}
+
+.secondary_button{
+  background: mat-color($candy-app-primary);
+  border: 0px;
+  padding: 5px;
+  color: mat-contrast($candy-app-primary, 900);
+}
+
+
+//.ok_button{
+//  background: url('../assets/ok.png');
+//}
+//
+//.cancel_button{
+//  background: url('../assets/x.png');
+//}
+
+.icon_button{
+  border: 0px;
+  height: 30px;
+  width: 30px;
+  background-size: 18px 25px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+}
+
+.form_label{
+  font-weight: bold;
+}
+
+
+.app_sub_title {
+  color: rgb(89, 89, 89);
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.app_content_text {
+  color: rgb(166, 166, 166);
+}
+
+.form_input{
+  width: 100%;
+  padding: 5px 5px;
+  box-sizing: border-box;
+  border: 1px solid rgb(217, 217, 217);
+  outline-color: mat-color($candy-app-accent);
+}
+
+.horizontal_line_separator{
+  height: 1px;
+  width: 100%;
+  background: $secondary-text-light_2;
+  margin: 20px 0px;
+}

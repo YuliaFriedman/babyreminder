@@ -5,12 +5,15 @@ import {BrowserModule} from "@angular/platform-browser";
 import {NgModule} from "@angular/core";
 import {MessagesComponent} from "./messagesComponent/messages.component";
 import {ContactsListComponent} from "./tasksComponent/contactsListComponent/contacts.list.component";
+import {TaskDetailsComponent} from "./tasksComponent/taskDetailsComponent/task.details.component";
 
 const appRoutes: Routes = [
   { path: '', component: TasksComponent, outlet: '' },
   { path: 'add', component: AddTaskComponent, outlet: '' },
   { path: 'messages', component: MessagesComponent, outlet: '' },
   { path: 'contacts', component: ContactsListComponent, outlet: '' },
+  { path: 'task-details/:id', component: TaskDetailsComponent, outlet: '' },
+  { path: 'edit/:id', component: AddTaskComponent, outlet: '' },
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ]
 

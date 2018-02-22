@@ -33,4 +33,9 @@ export class AppFeatureSupportService{
     return hasLocalNotifications;
   }
 
+  hasLockInfo(): boolean{
+    let hasLockInfo = !this.appUtils.nullOrUndefined(window.cordova) && !this.appUtils.nullOrUndefined(window.cordova.plugins) && !this.appUtils.nullOrUndefined(window.cordova.plugins.lockInfo);
+    console.log("has lock info = " + hasLockInfo);
+    return hasLockInfo;
+  }
 }

@@ -17,8 +17,9 @@ export class TaskItemComponent {
     this.appUtils = appUtils;
   }
 
-  enableValueChanged(task): void{
+  enableValueChanged(task, event): void{
     task.isEnabled = !task.isEnabled;
+    event.stopPropagation();
   }
 
 }

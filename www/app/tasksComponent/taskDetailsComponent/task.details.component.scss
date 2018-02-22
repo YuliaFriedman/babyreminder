@@ -1,0 +1,67 @@
+@import '../../../sass/variables.scss';
+@import '../../shared.scss';
+
+.task_details_container{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.task_details{
+  flex: 1;
+  margin: 10px;
+  position: relative;
+}
+
+#daysContainer{
+  display: flex;
+  margin-top: 10px;
+  justify-content: space-between;
+}
+
+.main_ok_button{
+  background-image: url('../../../assets/edit_colorful.png');
+  background-position: 36px 37px;
+  background-size: 20px;
+}
+
+.back_button{
+  background-image: url('../../../assets/back.png');
+}
+
+.timeSection{
+  text-align: center;
+  color: $primary-color;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.nextAlarmSection{
+  text-align: center;
+  color: $primary-color;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.isEnabledTask{
+  float: right;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+
+.titleSection{
+  margin-top: 20px;
+}
+
+.repeat_title_container{
+  display: flex;
+}
+
+.repeat_title_container .repeat_title{
+  flex:1;
+}
+
+.contact_container{
+  margin-top: 10px;
+}

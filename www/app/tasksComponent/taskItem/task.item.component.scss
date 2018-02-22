@@ -1,14 +1,12 @@
 @import '../../../sass/variables';
+@import '../../shared';
 
 .task_item_container{
   display: flex;
   padding: 10px;
-  background: white;
+  background: $secondary-color-light_2;
   margin: 10px 0px;
-
-  -webkit-box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.18);
-  -moz-box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.18);
-  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.18);
+  border-bottom: 1px solid $secondary-color_2;
 }
 
 .time_section{
@@ -20,7 +18,11 @@
 }
 
 .enabled_task .due_time{
-  color: mat-color($candy-app-accent);
+  color: $primary-color;
+}
+
+.enabled_task .task_title{
+  color: $primary-color;
 }
 
 .due_time{
