@@ -6,31 +6,84 @@
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  padding: 10px;
   -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
   -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
   box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
   background: white;
-  border-radius: 3px;
+  border-radius: 5px;
   text-align: center;
   width: 80%;
 
-  color: $primary-text-dark;
+  color: $primary-text-9;
+
+  background: $primary-color-8;
 }
 
 #buttons_container{
   display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
 }
 
 #buttons_container > *{
   flex: 1;
-  margin: 5px;
+  border: 0px;
+  height: 40px;
+  width: 40px;
+  background-size: 40px 40px;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .alert_title{
   font-size: 20px;
+  color: $primary-color-8;
+  padding: 30px;
+  background: $secondary-color-light_2;
+  border-radius: 5px 5px 0px 0px;
 }
 
 .task_title{
-  margin: 20px 0px;
+  color: $secondary-color-light_2;
+  padding: 30px;
+  font-size: 15px;
+}
+
+.stop_button{
+  background: url("../../../assets/off_white.png");
+}
+
+.snooze_button{
+  background: url("../../../assets/snooze_white.png");
+}
+
+.done_button{
+  background: url("../../../assets/ok_white.png");
+}
+
+.title_icon{
+  height: 50px;
+  width: 50px;
+  display: inline-block;
+  vertical-align: middle;
+  background-size: 50px 50px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.task_alert_icon{
+  background-image: url("../../../assets/task_alert.png");
+}
+
+.alert_title_text{
+  vertical-align: middle;
+}
+
+.alert_bg{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top:0px;
+  left: 0px;
+  background: rgba(0, 0, 0, 0.5);
 }

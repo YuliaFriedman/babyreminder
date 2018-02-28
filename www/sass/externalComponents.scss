@@ -1,7 +1,7 @@
 @import "./variables.scss";
 
 :host ::ng-deep.mat-ink-bar{
-  background-color: $secondary-color-light_2 !important;
+  background-color: $tab-selected-line !important;
 }
 //
 :host ::ng-deep.mat-tab-nav-bar{
@@ -23,19 +23,21 @@
 //
 //
 :host ::ng-deep.mat-tab-links {
-  background: $primary-color;
-  color: $primary-text !important;
+  background: $tab-background;
+  color: $tab-text !important;
 }
 //
 :host ::ng-deep.mat-tab-link{
-  color: $primary-text !important;
+  color: $tab-text !important;
   width: 50%;
   text-decoration: none;
   opacity: 0.9;
   height: 40px;
 }
 
-
+:host ::ng-deep.mat-checkbox-frame{
+  border-color: $checkbox-border-color;
+}
 
 
 

@@ -4,33 +4,26 @@
 .task_item_container{
   display: flex;
   padding: 10px;
-  background: $secondary-color-light_2;
+  background: $task-item-background;
   margin: 10px 0px;
-  border-bottom: 1px solid $secondary-color_2;
+  border-bottom: 1px solid $task-item-bottom-border;
+  border-top: 1px solid $task-item-top-border;
+  color: $task-item-color;
+  border-radius: 3px;
 }
 
-.time_section{
-  text-align: center;
-  border-right: 1px solid rgb(236, 236, 236);
-  margin-right: 10px;
-  position: relative;
-  width: 60px;
-}
-
-.enabled_task .due_time{
-  color: $primary-color;
-}
-
-.enabled_task .task_title{
-  color: $primary-color;
+.task_title{
+  font-size: 22px;
+  margin-bottom: 10px;
+  font-weight: bold;
 }
 
 .due_time{
-  margin-top: -15px;
-  padding-right: 10px;
-  font-size: 20px;
-  position: absolute;
-  top: 50%;
+  //margin-top: -15px;
+  //padding-right: 10px;
+  font-size: 25px;
+  //position: absolute;
+  //top: 50%;
 }
 
 .content_section{
@@ -38,21 +31,15 @@
   flex: 1;
 }
 
-.day_text, .contact_name{
-  font-weight: bold;
-}
-
 .enable_section{
-  width: 50px;
   text-align: center;
-  border-left: 1px solid rgb(236, 236, 236);
   padding-left: 5px;
   position: relative;
 }
 
 mat-slide-toggle{
-  position: absolute;
-  right: 0px;
-  top: 50%;
-  margin-top: -12px;
+  //position: absolute;
+  //right: 0px;
+  //top: 50%;
+  //margin-top: -12px;
 }

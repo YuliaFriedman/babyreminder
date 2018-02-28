@@ -58,12 +58,12 @@ export class TasksTimer implements IEventHandler{
     }
     else{
       // demo alarm
-      let wakeupTime = 1000;
+      let wakeupTime = 0;
       for (let task of tasks) {
         setTimeout(() => {
           this.alarmCallbak({
             type: "wakeup",
-            extra: task
+            extra: JSON.stringify(task)
           })
         }, wakeupTime);
         wakeupTime += 60000;

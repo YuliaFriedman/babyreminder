@@ -1,13 +1,11 @@
 <div class="task_item_container" [ngClass]="{enabled_task: task.isEnabled}">
-  <div class="time_section">
-    <div class="due_time app_content_text">{{task.time.toString()}}</div>
-  </div>
   <div class="content_section">
-    <div class="task_title app_sub_title">{{task.title}}</div>
-    <div class="app_content_text"><span *ngIf="task.repeat">Every </span><span class="day_text" *ngFor="let day of task.days; let i = index">{{appUtils.getDaysFriendlyStr(day)}}<span *ngIf="i < task.days.length">, </span></span></div>
-    <div class="app_content_text"><span class="contact_name" *ngFor="let contact of task.contacts; let i = index">{{contact.name}}<span *ngIf="i < task.contacts.length">, </span></span></div>
+    <div class="task_title">{{task.title}}</div>
+    <div ><span *ngIf="task.repeat">Every </span><span class="day_text" *ngFor="let day of task.days; let i = index">{{appUtils.getDaysFriendlyStr(day)}}<span *ngIf="i < task.days.length">, </span></span></div>
+    <div ><span class="contact_name" *ngFor="let contact of task.contacts; let i = index">{{contact.name}}<span *ngIf="i < task.contacts.length">, </span></span></div>
   </div>
   <div class="enable_section">
+    <div class="due_time">{{task.time.toString()}}</div>
     <mat-slide-toggle [checked]="task.isEnabled" (change)="enableValueChanged(task, $event)" (click)="$event.stopPropagation();"></mat-slide-toggle>
   </div>
 </div>

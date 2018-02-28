@@ -36,7 +36,7 @@
         "chart.js": "2.5.0",
         "com.uniclau.alarmplugin": "https://github.com/uniclau/AlarmPlugin.git",
         "cordova": "^7.0.0",
-        "cordova-android": "^7.0.0",
+        "cordova-android": "^7.1.0",
         "cordova-browser": "^5.0.3",
         "cordova-plugin-app-event": "file:node_modules/cordova-plugin-app-event",
         "cordova-plugin-background-mode": "^0.7.2",

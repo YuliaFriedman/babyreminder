@@ -1,32 +1,88 @@
-@import './3rdparty-theme';
+//@import './3rdparty-theme';
+$white: rgb(255, 255, 255);
 
-$primary-color-dark: mat-color($candy-app-accent, 900);//rgb(33, 89, 104);
-$primary-color: mat-color($candy-app-accent, 700);
-$primary-color-light: mat-color($candy-app-accent, 600);;
+$primary-color-12: #2c414a;
+$primary-color-11: #2d4a56;
+$primary-color-10: #334c56;
+$primary-color-9: rgb(66, 90, 100);
+$primary-color-8: rgb(69, 94, 101);
+$primary-color-7: rgb(82,110,121);
+$primary-color-6: #637c86;
 
-$primary-text-dark: rgba(255, 255, 255, 1);
-$primary-text: rgba(255, 255, 255, 1);
-$primary-text-light: rgba(0, 0, 0, 0.44);
+$primary-text-9: #6f858e;
+$primary-text-8: rgba(255, 255, 255, 1);
+$primary-text-7: #eaeaea;
 
-$secondary-color-darkest_2: mat-color($candy-app-primary, 900);
-$secondary-color-dark_2: mat-color($candy-app-primary, A400);
-$secondary-color_2: mat-color($candy-app-primary, A200);//rgb(245, 216, 1);
-$secondary-color-light_2: mat-color($candy-app-primary, A100);
+$secondary-color-darkest_2: rgb(92, 162, 174);
+$secondary-color-dark_2: rgb(97, 207, 220);
+$secondary-color_2: rgb(101, 218, 231);
+$secondary-color-light_2: rgb(102, 223, 236);
 
 
-$secondary-color-dark_1: mat-color($candy-app-secondary, A400);
-$secondary-color_1: mat-color($candy-app-secondary, A200);//rgb(245, 216, 1);
-$secondary-color-light_1: mat-color($candy-app-secondary, A100);
+$secondary-color-9: #d99a64;
+$secondary-color-8: #e7a765;
+$secondary-color-7: #f1b066;
 
-$secondary-text-dark_2: rgb(127, 127, 127);
-$secondary-text_2: rgb(173, 173, 173);
-$secondary-text-light_2: rgb(217, 217, 217);
+$secondary-text-9: $white;
+$secondary-text-8: $white;
+$secondary-text-7: $white;
 
 $secondary-text-weak_2:rgb(127, 127, 127);
 
-$white: rgb(255, 255, 255);
+
 
 $error_color: #9f0b00;
 
-$bg-color: $secondary-color_2;
 
+
+
+/* MAIN */
+
+$bg-color: $primary-color-9;
+$main-ok-button-color: $secondary-color-8;
+$main-back-button-bg: $primary-color-6;
+$app-text-default-color: $white;
+
+$horizontal-line-bg: $primary-color-11;
+$horizontal-bottom-line-bg: $primary-color-7;
+
+$ok-button-color: $secondary-color-8;
+$cancel-button-color: $primary-color-6;
+/* TABS */
+
+$tab-selected-line: $secondary-color-8;
+$tab-background: $primary-color-8;
+$tab-text: $primary-text-8;
+
+/* TASK ITEM */
+
+$task-item-background: $primary-color-7;
+$task-item-bottom-border: $primary-color-10;
+$task-item-top-border: $primary-color-6;
+$task-item-color: $primary-text-7;
+
+/* TASK DETAILS */
+
+$day-button-default-color: $primary-color-10;
+$day-button-selected-color: $secondary-color-8;
+$time-color: $secondary-text-8;
+$next-alarm-color: $secondary-text-8;
+$item-details-text-color: $primary-text-7;
+$item-details-sub-text: $primary-text-9;
+
+/* TASK EDIT */
+$input-background: $primary-color-11;
+$input-border-top: $primary-color-12;
+$input-border-bottom: $primary-color-8;
+$title-place-holder-color: $primary-color-8;
+$contacts-button-bg: $secondary-color-8;
+$checkbox-border-color: $primary-color-6;
+
+/* CONTACTS */
+
+$contacts-search-bg: $primary-color-9;
+$new-contact-bg: $primary-color-11;
+$new-contact-border-top: $primary-color-12;
+$new-contact-border-bottom: $primary-color-8;
+
+$new-contact-input-color: $primary-color-6;

@@ -1,13 +1,7 @@
 <div class="add_task_container app_content_text" >
   <div class="content_container">
-    <div class="titleAreaContainer">
-      <mat-form-field id="titleContainer" [floatLabel]="'never'">
-        <input matInput placeholder="Title" [formControl]="title" required>
-        <mat-error *ngIf="title.invalid">{{getErrorMessage("title")}}</mat-error>
-      </mat-form-field>
-    </div>
 
-    <div id="timePickerContainer" (click)="openTimePicker()">
+    <div class="timeSection" (click)="openTimePicker()">
       {{task.time.toString()}}
       <!--<ngb-timepicker [(ngModel)]="timePickerModel" required id="timePicker"></ngb-timepicker>-->
     </div>
@@ -24,12 +18,24 @@
       </div>
     </div>
 
+    <div class="titleAreaContainer">
+      <div class="sub_title">title</div>
+      <mat-form-field id="titleContainer" [floatLabel]="'never'">
+        <input matInput placeholder="Enter title" [formControl]="title" required>
+        <mat-error *ngIf="title.invalid">{{getErrorMessage("title")}}</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="horizontal_line_separator"></div>
+
     <div id="repeatContainer">
-      <span class="form_label">Repeat</span>
+      <span class="repeat_title sub_title">Repeat</span>
       <mat-checkbox id="repeatCheckbox" [(ngModel)]="task.repeat"></mat-checkbox>
     </div>
 
-    <div id="shareContactsTitleContainer"><span class="form_label">Share with</span><button id="contactsButton" (click)="openContactsList()"></button></div>
+    <div class="horizontal_line_separator"></div>
+
+    <div id="shareContactsTitleContainer"><span class="share_with_title sub_title">Share with</span><button id="contactsButton" (click)="openContactsList()"></button></div>
 
     <div id="shareContactsContainer">
 

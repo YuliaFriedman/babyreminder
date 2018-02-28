@@ -1,10 +1,18 @@
+<div class="alert_bg" *ngIf="showAlert"></div>
 <div class="task_alert" *ngIf="showAlert">
 
-  <div class="alert_title">Task completed?</div>
-  <div class="task_title">{{currentTask.title}}</div>
+  {{test(viewData)}}
+
+  <div class="alert_title">
+    <span ngClass="title_icon {{viewData.titleIconClass}}"></span>
+    <span class="alert_title_text">{{viewData.title}}</span>
+  </div>
+  <div class="task_title">{{viewData.content}}</div>
   <div id="buttons_container">
-    <button (click)="stopAlert()" class="secondary_button">Stop</button>
-    <button (click)="snoozeTask()" class="secondary_button">Snooze</button>
-    <button (click)="completeTask()" class="primary_button">Done</button>
+    <button *ngFor="let button of viewData.buttons" (click)="button.callback()" ngClass="{{button.class}}"></button>
+
+    <!--<button (click)="stopAlert()" ngClass="{{button.class}}"></button>-->
+    <!--<button (click)="snoozeTask()" ngClass="{{button.class}}"></button>-->
+    <!--<button (click)="completeTask()" ngClass="{{button.class}}"></button>-->
   </div>
 </div>

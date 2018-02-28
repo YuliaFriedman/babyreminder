@@ -9,6 +9,8 @@
     <button (click)="addNewContact()" class="add_button icon_button"></button>
   </div>
 
+  <div class="horizontal_line_separator"></div>
+
   <div class="contacts_container">
     <div *ngIf="newContact" class="new_contact_container">
       <div>
@@ -24,8 +26,8 @@
         <!--<input [(ngModel)]="newContact.phone">-->
       </div>
       <div class="new_contact_buttons">
-        <button (click)="removeNewContact()" class="cancel_button icon_button"></button>
-        <button (click)="saveNewContact()" class="ok_button icon_button"></button>
+        <button (click)="removeNewContact()" class="cancel_button">Cancel</button>
+        <button (click)="saveNewContact()" class="ok_button">Ok</button>
       </div>
     </div>
 

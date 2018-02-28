@@ -8,6 +8,7 @@ import {LogService} from "./LogService";
 import {TasksTimer} from "./TasksTimerService";
 import {AppConstants} from "../appConstants";
 import {EventsManager} from "./AppEventsManager";
+import {NewNotification, NotificationType} from "../models/notificationInfo";
 //import {setTimeout} from "timers";
 
 @Injectable()
@@ -19,12 +20,23 @@ export class DataProvider{
   constructor(private _appFeatureSupportService: AppFeatureSupportService, private _logService: LogService, private zone:NgZone,
               private eventsManager:EventsManager){
 
+
+
+
+
+
   }
 
   getTasks():  Observable<Task[]>{
     return new Observable((observer) => {
       if(!this.tasks){
         this.tasks = tasks;
+        // TODO: remove
+        //this.eventsManager.handleEvent(AppConstants.eventTypes.setAlarm, tasks);
+        // let notification = new NewNotification();
+        // notification.type = NotificationType.TaskCompletedAlert;
+        // notification.data = tasks[0];
+        // this.eventsManager.handleEvent(AppConstants.eventTypes.alert, notification);
       }
       observer.next(this.tasks);
       observer.complete();

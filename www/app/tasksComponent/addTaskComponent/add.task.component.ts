@@ -124,8 +124,9 @@ export class AddTaskComponent implements OnInit{
   openTimePicker(){
     const amazingTimePicker = this.atp.open({
       time: this.task.time.toString(),
+      theme: 'dark',
       arrowStyle: {
-        background: '#60c1ce',
+        background: '#d99a64',
         color: "white"
       }
     });

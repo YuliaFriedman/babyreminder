@@ -11,7 +11,7 @@
   flex: 1;
   overflow-y: auto;
   overflow-x: hidden;
-  padding: 10px;
+  padding: 0px 10px 00px 10px;
 }
 
 .contact_item{
@@ -41,12 +41,11 @@
 }
 
 .new_contact_container{
-  padding: 10px 10px 40px 10px;
-  border: 1px solid #e3e3e3;
+  padding: 10px 10px 30px 10px;
+  border-bottom: 1px solid $new-contact-border-bottom;
   margin: 10px 0px;
-  -webkit-box-shadow: 1px 1px 0px 0px rgba(255, 255, 255, 0.75);
-  -moz-box-shadow: 1px 1px 0px 0px rgba(255, 255, 255, 0.75);
-  box-shadow: 1px 1px 0px 0px rgba(255, 255, 255, 0.75)
+  background: $new-contact-bg;
+  border-top: 1px solid $new-contact-border-top;
 }
 
 .new_contact_buttons{
@@ -73,18 +72,19 @@ mat-form-field{
 }
 
 .search_container{
-  padding: 10px;
+  padding: 10px 10px 0px 10px;
   display: flex;
   align-items: center;
   width: 100%;
-  background: $secondary-color_2;
+  background: $contacts-search-bg;
   z-index: 100;
-  box-shadow: 0px 0px 5px 0px #b1b1b1;
 }
 
 .search_box{
   flex: 1;
   height: 30px;
+
+  @include input_style;
 }
 
 .contact_item_container{
@@ -107,4 +107,12 @@ mat-form-field{
 
 .horizontal_line_separator{
   margin: 10px 0px;
+}
+
+:host ::ng-deep.mat-form-field-underline{
+  background: $new-contact-input-color;
+}
+
+:host ::ng-deep.mat-form-field-empty.mat-form-field-label{
+  color: $new-contact-input-color;
 }

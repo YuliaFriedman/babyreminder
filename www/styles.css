@@ -4,7 +4,8 @@
 
 body{
   /*background: rgb(241, 241, 241) !important; !* override bootstrap css *!*/
-  font-family: "Calibri, Helvetica Neue",sans-serif;
+  font-family: Calibri, "Helvetica Neue", sans-serif !important;
+
   font-size: 12px !important;
   margin: 0px;
   text-transform: none !important;

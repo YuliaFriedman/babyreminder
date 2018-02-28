@@ -7,14 +7,13 @@
   width: 28px;
   padding: 5px 0px;
   text-align: center;
-
-  background: $secondary-color-dark_2;
   color: white;
+  background: $day-button-default-color;
 }
 
 .day_selected{
   color: $white;
-  background: $primary-color;
+  background: $day-button-selected-color;
 }
 
 .confirm_buttons_contaner{
@@ -22,7 +21,7 @@
 }
 
 .main_ok_button{
-  background: $secondary-color_1;
+  background: $main-ok-button-color;
   border: 0px;
   height: 180px;
   width: 180px;
@@ -30,16 +29,16 @@
   border-radius: 90px;
   margin-right: -100px;
   margin-bottom: -100px;
-  -webkit-box-shadow: -1px -1px 5px 0px rgba(189,189,189,1);
-  -moz-box-shadow: -1px -1px 5px 0px rgba(189,189,189,1);
-  box-shadow: -1px -1px 5px 0px rgba(189,189,189,1);
+  //-webkit-box-shadow: -1px -1px 5px 0px rgba(189,189,189,1);
+  //-moz-box-shadow: -1px -1px 5px 0px rgba(189,189,189,1);
+  //box-shadow: -1px -1px 5px 0px rgba(189,189,189,1);
   background-repeat: no-repeat;
   outline: none;
 
 }
 
 .back_button{
-  background: $secondary-color-darkest_2;
+  background: $main-back-button-bg;
   border: 0px;
   height: 30px;
   width: 30px;
@@ -51,34 +50,6 @@
   margin-top: 25px;
   margin-left: 25px;
 }
-
-.sub_title{
-  color: $secondary-text_2;
-}
-
-
-.primary_button{
-  background: mat-color($candy-app-accent);
-  border: 0px;
-  padding: 5px;
-  color: mat-contrast($candy-app-accent, 900);
-}
-
-.secondary_button{
-  background: mat-color($candy-app-primary);
-  border: 0px;
-  padding: 5px;
-  color: mat-contrast($candy-app-primary, 900);
-}
-
-
-//.ok_button{
-//  background: url('../assets/ok.png');
-//}
-//
-//.cancel_button{
-//  background: url('../assets/x.png');
-//}
 
 .icon_button{
   border: 0px;
@@ -94,28 +65,56 @@
   font-weight: bold;
 }
 
-
-.app_sub_title {
-  color: rgb(89, 89, 89);
-  font-weight: bold;
-  font-size: 15px;
-}
-
-.app_content_text {
-  color: rgb(166, 166, 166);
-}
-
-.form_input{
-  width: 100%;
-  padding: 5px 5px;
-  box-sizing: border-box;
-  border: 1px solid rgb(217, 217, 217);
-  outline-color: mat-color($candy-app-accent);
-}
-
 .horizontal_line_separator{
-  height: 1px;
+  height: 2px;
   width: 100%;
-  background: $secondary-text-light_2;
+  background: $horizontal-line-bg;
+  border-bottom: 1px solid $horizontal-bottom-line-bg;
   margin: 20px 0px;
+}
+
+.sub_title {
+  text-shadow: 1px 1px 2px #203740;
+  font-size: 13px;
+  font-weight: bold;
+  color: $item-details-sub-text;
+}
+
+@mixin sub_title_value($addShadow){
+
+  @if $addShadow == true{
+    text-shadow: 1px 1px 2px #203740;
+  }
+  @else {
+    text-shadow: none;
+  }
+
+  font-size: 20px;
+  font-weight: bold;
+  color: $item-details-text-color;
+}
+
+@mixin input_style{
+  background: $input-background;
+  border: 0px;
+  border-top: 1px solid $input-border-top;
+  border-bottom: 1px solid $input-border-bottom;
+  border-radius: 3px;
+  padding: 5px;
+}
+
+.sub_title_value {
+  @include sub_title_value(true);
+}
+
+.ok_button{
+  background: transparent;
+  border: 0px;
+  color: $ok-button-color;
+}
+
+.cancel_button{
+  background: transparent;
+  border: 0px;
+  color: $cancel-button-color;
 }

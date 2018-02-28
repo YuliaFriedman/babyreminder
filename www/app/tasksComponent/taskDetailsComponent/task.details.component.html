@@ -3,7 +3,7 @@
   <div class="task_details">
 
     <div class="isEnabledTask">
-      <mat-slide-toggle [checked]="task.isEnabled" readonly></mat-slide-toggle>
+      <mat-slide-toggle [checked]="task.isEnabled" [disabled]="true"></mat-slide-toggle>
     </div>
 
     <div class="timeSection">
@@ -23,12 +23,13 @@
       <span class="day_button" [ngClass]="{day_selected: task.days.indexOf(6) >= 0}">St</span>
     </div>
     <div class="titleSection">
-      <div class="title sub_title">{{task.title}}</div>
+      <div class="sub_title">title</div>
+      <div class="sub_title_value">{{task.title}}</div>
     </div>
     <div class="horizontal_line_separator"></div>
     <div class="repeat_title_container">
       <span class="sub_title repeat_title">Repeat</span>
-      <div>{{task.repeat ? 'Yes' : 'No'}}</div>
+      <div class="sub_title_value">{{task.repeat ? 'Yes' : 'No'}}</div>
     </div>
 
     <div class="horizontal_line_separator"></div>
@@ -37,7 +38,7 @@
     </div>
     <div>
       <div class="contact_container" *ngFor="let c of task.contacts">
-        <div>
+        <div class="sub_title_value">
           {{c.name}}
         </div>
         <div class="contact_phone">
