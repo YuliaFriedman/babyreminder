@@ -43,6 +43,7 @@
         "cordova-plugin-badge": "^0.8.7",
         "cordova-plugin-contacts": "~2.0.1",
         "cordova-plugin-device": "^2.0.1",
+        "cordova-plugin-dialogs": "^2.0.1",
         "cordova-plugin-local-notification": "git+https://github.com/katzer/cordova-plugin-local-notifications.git",
         "cordova-plugin-lock-info": "0.0.2",
         "cordova-plugin-whitelist": "^1.3.3",
@@ -87,7 +88,8 @@
             "phonegap-plugin-local-notification": {},
             "com.uniclau.alarmplugin": {},
             "cordova-plugin-badge": {},
-            "cordova-plugin-local-notification": {}
+            "cordova-plugin-local-notification": {},
+            "cordova-plugin-dialogs": {}
         },
         "platforms": [
             "android",

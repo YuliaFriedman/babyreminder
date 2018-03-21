@@ -2,14 +2,11 @@
   Initializing...
 </div>
 
-<div class="app_main">
-
-  <app-header></app-header>
-
-  <app-tabs *ngIf="appInitialized"></app-tabs>
-
-</div>
+<router-outlet *ngIf="appInitialized"></router-outlet>
 
 
 
-<task-alert></task-alert>
+
+
+
+

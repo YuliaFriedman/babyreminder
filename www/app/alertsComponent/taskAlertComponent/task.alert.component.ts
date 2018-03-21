@@ -4,6 +4,8 @@ import {AppConstants} from "../../appConstants";
 import {Task} from "../../models/task";
 import {NewNotification, NotificationType} from "../../models/notificationInfo";
 import {DataProvider} from "../../services/DataProvider";
+import {TaskChangedData, TaskChangeStatus} from "../../models/taskChangedModel";
+import {LogService} from "../../services/LogService";
 
 @Component({
   selector: 'task-alert',
@@ -11,6 +13,8 @@ import {DataProvider} from "../../services/DataProvider";
   styleUrls: ['./task.alert.component.scss']
 })
 export class TaskAlertComponent implements IEventHandler{
+
+  handlerName: string;
 
 
   currentNotification: NewNotification;
@@ -26,6 +30,7 @@ export class TaskAlertComponent implements IEventHandler{
   alertsQueue: NewNotification[] = [];
 
   constructor(private eventsManager:EventsManager, private dataProvider:DataProvider){
+    this.handlerName = "TaskAlertComponent";
     eventsManager.subscribeEvent(AppConstants.eventTypes.alert, this);
   }
 
@@ -38,8 +43,11 @@ export class TaskAlertComponent implements IEventHandler{
 
   addAlertToQueue(notification:NewNotification){
     if(this.hasTaskWithId(notification.data.id)){
+      LogService.log("Alert NOT added to queue, already in queue: ", notification);
       return;
     }
+
+    LogService.log("Adding alert event to queue: ", notification);
     this.alertsQueue.push(notification);
   }
 
@@ -54,10 +62,13 @@ export class TaskAlertComponent implements IEventHandler{
 
   handleQueue(){
     if(this.showAlert || this.alertsQueue.length == 0){
+      LogService.log("In handle queue - alerts, not showing new alert [alert is shown = " + this.showAlert + ", # of alerts = " + this.alertsQueue.length);
       return;
     }
 
     this.currentNotification = this.alertsQueue[0];
+
+    LogService.log("Next alert to show: ", this.currentNotification);
 
     switch (this.currentNotification.type){
       case NotificationType.TaskCompletedAlert:
@@ -86,39 +97,27 @@ export class TaskAlertComponent implements IEventHandler{
 
     this.alertsQueue.splice(0, 1);
     this.showAlert = true;
+
+    LogService.log("Next alert view data: ", this.viewData);
+
   }
 
   stopAlert(){
     this.showAlert = false;
-    this.currentNotification.data.stopTask();
-    this.raiseResetAlarm();
+    this.eventsManager.handleEvent(AppConstants.eventTypes.taskStatusChanged, new TaskChangedData(this.currentNotification.data, TaskChangeStatus.Stop));
     this.handleQueue();
   }
 
   snoozeTask(){
     this.showAlert = false;
-    this.currentNotification.data.snoozeTask();
-    this.raiseResetAlarm();
+    this.eventsManager.handleEvent(AppConstants.eventTypes.taskStatusChanged, new TaskChangedData(this.currentNotification.data, TaskChangeStatus.Snooze));
     this.handleQueue();
   }
 
   completeTask(){
     this.showAlert = false;
-    this.currentNotification.data.completeTask();
-    this.raiseResetAlarm();
+    this.eventsManager.handleEvent(AppConstants.eventTypes.taskStatusChanged, new TaskChangedData(this.currentNotification.data, TaskChangeStatus.Complete));
     this.handleQueue();
   }
 
-  raiseResetAlarm(){
-    this.dataProvider.getTasks().subscribe(
-      tasks => {
-        this.eventsManager.handleEvent(AppConstants.eventTypes.setAlarm, tasks);
-      }
-    );
-
-  }
-
-  test(data){
-    console.log(data);
-  }
 }

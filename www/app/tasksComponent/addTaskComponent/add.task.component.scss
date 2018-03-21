@@ -11,6 +11,7 @@
 .content_container{
   flex: 1;
   overflow-y: auto;
+  overflow-x: hidden;
   margin-left: 10px;
   margin-right: 10px;
 }
@@ -24,6 +25,7 @@
   color: $time-color;
   font-size: 30px;
   font-weight: bold;
+  margin-top: 10px;
 }
 
 #timePicker{
@@ -75,8 +77,12 @@ input{
   flex: 1;
 }
 
-#shareContactsContainer{
+.single_contact{
   margin-top: 10px;
+}
+
+.contact_name{
+  @include sub_title_value(true);
 }
 
 #contactsButton{

@@ -1,0 +1,9 @@
+@import "../messages_common.scss";
+
+.message_item.complete{
+  border-left-color: $completed-task-border;
+}
+
+.message_item.stop{
+  border-left-color: $stopped-task-border;
+}

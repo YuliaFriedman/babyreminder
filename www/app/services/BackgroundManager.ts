@@ -8,18 +8,26 @@ import {Task} from "../models/task";
 
 @Injectable()
 export class BackgroundManager implements IEventHandler {
+  handlerName: string;
 
   constructor(private appFeatureSupportService: AppFeatureSupportService, private eventsManager: EventsManager) {
 
+    this.handlerName = "BackgroundManager";
+
     if (appFeatureSupportService.hasBackgroundService()) {
+      window.cordova.plugins.backgroundMode.configure({
+        title: 'Baby reminder',
+        text: 'Baby reminder',
+        bigText: true,
+      });
       window.cordova.plugins.backgroundMode.on('activate', function () {
         window.cordova.plugins.backgroundMode.disableWebViewOptimizations();
       });
       window.cordova.plugins.backgroundMode.overrideBackButton();
       window.cordova.plugins.backgroundMode.enable();
 
-      eventsManager.subscribeEvent(AppConstants.eventTypes.wakeupEvent, this);
     }
+    eventsManager.subscribeEvent(AppConstants.eventTypes.wakeupEvent, this);
   }
 
   handleEvent(eventType: string, data: any) {

@@ -1,0 +1,14 @@
+BUGS:
+
+1. Edit time not working - Fixed
+2. Contacts busy not working - Fixed
+3. Selected time display problem - Fixed
+4. Can't select contact from list of contacts
+5. Calculate next alarm
+
+TASKS:
+
+1. Messages
+2. Push from server
+3. Contacts virtual
+4. Header menu

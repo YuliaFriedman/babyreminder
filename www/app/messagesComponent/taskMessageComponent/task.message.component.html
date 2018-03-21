@@ -1,0 +1,8 @@
+<div class="message_item" [ngClass]="message.status">
+  <div class="message_title" >{{message.title}}</div>
+  <div>{{message.status}}</div>
+  <div class="date_row">
+    <span>{{message.date}}</span>
+    <span class="executor_cell">{{message.executor.name}}</span>
+  </div>
+</div>

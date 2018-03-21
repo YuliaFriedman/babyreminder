@@ -1,0 +1,18 @@
+<mat-sidenav-container class="app-side-nav-container">
+  <mat-sidenav #sidenav mode="over" [(opened)]="menuOpened">
+    <app-menu></app-menu>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <div class="app_main">
+
+      <app-header></app-header>
+
+      <app-tabs></app-tabs>
+
+    </div>
+
+    <task-alert></task-alert>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>

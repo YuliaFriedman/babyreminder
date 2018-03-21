@@ -9,6 +9,9 @@ import {FormControl, Validators} from '@angular/forms';
 import {ActivatedRoute, Router} from "@angular/router";
 import {Location} from "@angular/common";
 import {AmazingTimePickerService} from "amazing-time-picker";
+import {EventsManager} from "../../services/AppEventsManager";
+import {AppConstants} from "../../appConstants";
+import {MenuButton} from "../../models/menu";
 
 @Component({
   selector: 'add-task',
@@ -35,7 +38,8 @@ export class AddTaskComponent implements OnInit{
     private router:Router,
     private _location: Location,
     private route: ActivatedRoute,
-    private atp: AmazingTimePickerService){
+    private atp: AmazingTimePickerService,
+    private eventsManager:EventsManager){
     this.appUtils = appUtils;
     this.origTask = new Task();
   }
@@ -59,6 +63,8 @@ export class AddTaskComponent implements OnInit{
         this.title.setValue(this.task.title);
       }
     });
+
+    this.eventsManager.handleEvent(AppConstants.eventTypes.updateMenuButtons, []);
   }
 
   toggleDay(day: Days): void{
@@ -109,6 +115,7 @@ export class AddTaskComponent implements OnInit{
     this.task.title = this.title.value;
     this.task.time.hour = this.timePickerModel.hour;
     this.task.time.minute = this.timePickerModel.minute;
+    this.task.sortDays();
   }
 
   cancel(){
@@ -118,12 +125,13 @@ export class AddTaskComponent implements OnInit{
 
   openContactsList(){
     this.saveDataToTask();
-    this.router.navigateByUrl('/contacts');
+    this.router.navigate(['/contacts', this.isInEdit ? this.task.id: ""]);
+    //this.router.navigateByUrl('/contacts');
   }
 
   openTimePicker(){
     const amazingTimePicker = this.atp.open({
-      time: this.task.time.toString(),
+      time: this.appUtils.getTimeString(this.timePickerModel.hour, this.timePickerModel.minute),
       theme: 'dark',
       arrowStyle: {
         background: '#d99a64',
@@ -132,8 +140,8 @@ export class AddTaskComponent implements OnInit{
     });
     amazingTimePicker.afterClose().subscribe(time => {
       let result = time.split(":");
-      this.task.time.hour = +result[0];
-      this.task.time.minute = +result[1];
+      this.timePickerModel.hour = +result[0];
+      this.timePickerModel.minute = +result[1];
     });
   }
 

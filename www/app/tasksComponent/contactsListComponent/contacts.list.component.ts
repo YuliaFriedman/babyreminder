@@ -6,10 +6,12 @@ import {MAT_DIALOG_DATA, MatDialog, MatDialogRef, ProgressSpinnerMode} from "@an
 import {DataProvider} from "../../services/DataProvider";
 
 import {FormControl, Validators} from '@angular/forms';
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {Location} from '@angular/common';
 import {AppFeatureSupportService} from "../../services/appFeaturesSuppertService";
 import {LogService} from "../../services/LogService";
+import {EventsManager} from "../../services/AppEventsManager";
+import {AppConstants} from "../../appConstants";
 
 @Component({
   selector: 'contacts-list',
@@ -29,25 +31,51 @@ export class ContactsListComponent implements OnInit{
   searchValue:string;
 
   waitingForContacts = true;
+  sub: any;
+  sub2:any;
+  currentTask: Task;
 
-  constructor(private dataProvider: DataProvider, private router:Router, private _location: Location, private _changeDetectorRef: ChangeDetectorRef, private _logService: LogService,
-              private zone:NgZone){
+  constructor(
+    private dataProvider: DataProvider,
+    private router:Router,
+    private _location: Location,
+    private _changeDetectorRef: ChangeDetectorRef,
+    private zone:NgZone,
+    private route: ActivatedRoute,
+    private eventsManager:EventsManager){
 
   }
 
   ngOnInit(): void {
+    this.sub = this.route.params.subscribe(params => {
+      if(params.hasOwnProperty('id')) {
+        this.sub2 = this.dataProvider.getTaskById(params['id']).subscribe(task => {
+        this.currentTask = task;
+        this.getContacts();
+        });
+      }
+      else{
+        this.currentTask = this.dataProvider.getNewTask();
+        this.getContacts();
+      }
+    });
+
+    this.eventsManager.handleEvent(AppConstants.eventTypes.updateMenuButtons, []);
+
+  }
+
+  getContacts(){
     this.dataProvider.getContacts().subscribe(next => {
-        this.contacts = next;
-        this._logService.log("Contacts (in contacts list component): ", this.contacts);
-        //this._changeDetectorRef.detectChanges();
-        this.filteredContacts = this.contacts;
-        this.waitingForContacts = false;
+      this.contacts = next;
+      this.markSelectedContacts(this.contacts);
+      LogService.log("Contacts (in contacts list component): ", this.contacts);
+      //this._changeDetectorRef.detectChanges();
+      this.filteredContacts = this.contacts;
+      this.waitingForContacts = false;
     }, error => {
       this.getContactsError = error;
     });
-    //this.filteredContacts = this.contacts;
   }
-
 
   search(){
     this.filteredContacts = this.contacts.filter((value, index) => {
@@ -102,8 +130,28 @@ export class ContactsListComponent implements OnInit{
   saveContacts(){
     //var selectedContacts = [];
     var selectedContacts = this.contacts.filter(item => item.isSelected );
-    this.dataProvider.setContactsInNewTask(selectedContacts);
+    //this.dataProvider.setContactsInNewTask(selectedContacts);
+    this.currentTask.contacts = selectedContacts;
     this._location.back();
+  }
+
+  markSelectedContacts(contacts){
+    if(this.currentTask && this.currentTask.contacts){
+      for(let newC of this.currentTask.contacts){
+        let found = false;
+        for(let c of contacts){
+          if(newC.equal(c)){
+            c.isSelected = true;
+            found = true;
+            break;
+          }
+        }
+        if(!found){
+          newC.isSelected = true;
+          contacts.splice(0, 0, newC);
+        }
+      }
+    }
   }
 
   cancel(){

@@ -16,7 +16,9 @@
 
   color: $primary-text-9;
 
-  background: $primary-color-8;
+  background: $alert-bg;
+
+  z-index: 1;
 }
 
 #buttons_container{
@@ -37,16 +39,16 @@
 
 .alert_title{
   font-size: 20px;
-  color: $primary-color-8;
+  color: $alert-header-color;
   padding: 30px;
-  background: $secondary-color-light_2;
+  background: $alert-header-bg;
   border-radius: 5px 5px 0px 0px;
 }
 
 .task_title{
-  color: $secondary-color-light_2;
+  color: $alert-content-color;
   padding: 30px;
-  font-size: 15px;
+  font-size: 17px;
 }
 
 .stop_button{
@@ -86,4 +88,5 @@
   top:0px;
   left: 0px;
   background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
 }

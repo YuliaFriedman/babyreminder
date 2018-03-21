@@ -6,14 +6,23 @@ import {NgModule} from "@angular/core";
 import {MessagesComponent} from "./messagesComponent/messages.component";
 import {ContactsListComponent} from "./tasksComponent/contactsListComponent/contacts.list.component";
 import {TaskDetailsComponent} from "./tasksComponent/taskDetailsComponent/task.details.component";
+import {LoginPageComponent} from "./login/login.component";
+import {AppContentComponent} from "./appContentComponent/app.content.component";
 
 const appRoutes: Routes = [
-  { path: '', component: TasksComponent, outlet: '' },
-  { path: 'add', component: AddTaskComponent, outlet: '' },
-  { path: 'messages', component: MessagesComponent, outlet: '' },
-  { path: 'contacts', component: ContactsListComponent, outlet: '' },
-  { path: 'task-details/:id', component: TaskDetailsComponent, outlet: '' },
-  { path: 'edit/:id', component: AddTaskComponent, outlet: '' },
+  {
+    path: '',
+    component: AppContentComponent,
+    children: [
+      { path: '', component: TasksComponent },
+      { path: 'add', component: AddTaskComponent },
+      { path: 'messages', component: MessagesComponent },
+      { path: 'contacts/:id', component: ContactsListComponent },
+      { path: 'task-details/:id', component: TaskDetailsComponent },
+      { path: 'edit/:id', component: AddTaskComponent },
+    ]
+  },
+  { path: 'login', component: LoginPageComponent },
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ]
 

@@ -1,0 +1,44 @@
+@import '../../sass/variables';
+@import '../shared';
+
+.header_container{
+  background: $header-bg;
+  padding: 6px 10px 3px 10px;
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+#menuButton{
+  vertical-align: middle;
+  margin-left: 10px;
+  margin-top: 5px;
+}
+
+.menuButton{
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.menuButton > mat-icon{
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+.menuButton > span{
+  font-size: 15px;
+  vertical-align: middle;
+}
+
+#user_icon{
+  font-size: 50px;
+  width: 50px;
+}
+
+#user_phone{
+  font-size: 17px;
+}
+
+#user_container{
+  text-align: center;
+}

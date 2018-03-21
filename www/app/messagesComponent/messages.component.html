@@ -1,1 +1,12 @@
-Messages
+<div *ngFor="let message of messages" class="messages_container">
+
+  <div [ngSwitch]="message.type">
+
+    <task-message *ngSwitchCase="'TaskCompleted'" [message]="message"></task-message>
+
+    <task-message *ngSwitchCase="'TaskCanceled'" [message]="message"></task-message>
+
+  </div>
+
+
+</div>

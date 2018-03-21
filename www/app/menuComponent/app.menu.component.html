@@ -1,0 +1,46 @@
+<div>
+  <mat-icon id="menuButton" (click)="toggleMenu()">menu</mat-icon>
+</div>
+
+<div *ngIf="loginService.isLoggedIn()" id="user_container">
+  <mat-icon id="user_icon">account_circle</mat-icon>
+  <div id="user_phone">{{loginService.getCurrentUser()}}</div>
+</div>
+
+<div *ngIf="topMenuButtons.length > 0">
+
+  <div class="horizontal_line_separator"></div>
+
+  <div class="menuButton" *ngFor="let button of topMenuButtons" (click)="menuButtonClicked(button.id)">
+    <mat-icon>{{button.icon}}</mat-icon>
+    <span>{{button.text}}</span>
+  </div>
+
+</div>
+
+<div *ngIf="customMenuButtons.length > 0">
+
+  <div class="horizontal_line_separator"></div>
+
+  <div class="menuButton" *ngFor="let button of customMenuButtons" (click)="menuButtonClicked(button.id)">
+    <mat-icon>{{button.icon}}</mat-icon>
+    <span>{{button.text}}</span>
+  </div>
+
+</div>
+
+<div *ngIf="bottomMenuButtons.length > 0">
+
+  <div class="horizontal_line_separator"></div>
+
+  <div class="menuButton" *ngFor="let button of bottomMenuButtons" (click)="menuButtonClicked(button.id)">
+    <mat-icon>{{button.icon}}</mat-icon>
+    <span>{{button.text}}</span>
+  </div>
+
+</div>
+
+
+
+
+

@@ -4,12 +4,20 @@ import {TimerType, Task, Days} from "../models/task";
 import {Injectable, NgZone} from "@angular/core";
 import {EventsManager, IEventHandler} from "./AppEventsManager";
 import {AppConstants} from "../appConstants";
+import {LogService} from "./LogService";
 
 
 @Injectable()
 export class TasksTimer implements IEventHandler{
+  handlerName: string;
 
-  constructor(private appFeatureSupportService: AppFeatureSupportService, private eventsManager:EventsManager,  private zone:NgZone) {
+  constructor(
+    private appFeatureSupportService: AppFeatureSupportService,
+    private eventsManager:EventsManager,
+    private zone:NgZone,
+    private dataProvider:DataProvider
+  ) {
+    this.handlerName = "TasksTimerService";
     //this.setAlarms();
     eventsManager.subscribeEvent(AppConstants.eventTypes.setAlarm, this);
   }
@@ -52,23 +60,41 @@ export class TasksTimer implements IEventHandler{
         }
       }
 
+
+
       if (alarms.length > 0) {
         window.wakeuptimer.wakeup(this.alarmCallbak.bind(this), this.alarmError.bind(this), {alarms: alarms});
+        LogService.log("Settings timer: ", alarms);
+      }
+      else{
+        LogService.log("NOT settings timer: ", alarms);
       }
     }
     else{
       // demo alarm
-      let wakeupTime = 0;
+      let wakeupTime = 500;
       for (let task of tasks) {
-        setTimeout(() => {
-          this.alarmCallbak({
-            type: "wakeup",
-            extra: JSON.stringify(task)
-          })
-        }, wakeupTime);
+        if(task.timerState.type == TimerType.Idle){
+          continue;
+        }
+        else if(task.timerState.type == TimerType.Alarm){
+          this.setDemoTimer(task, wakeupTime);
+        }
+        else if (task.timerState.type == TimerType.Snooze){
+          this.setDemoTimer(task, wakeupTime);
+        }
         wakeupTime += 60000;
       }
     }
+  }
+
+  setDemoTimer(task, time){
+    setTimeout(() => {
+      this.alarmCallbak({
+        type: "wakeup",
+        extra: JSON.stringify(task)
+      })
+    }, time);
   }
 
   toAlarmDays(days: Days[]): string[]{
@@ -107,20 +133,22 @@ export class TasksTimer implements IEventHandler{
   alarmCallbak(result) {
     this.zone.run(() => {
       if (result.type === 'wakeup') {
-        console.log('wakeup alarm detected--', result);
+        LogService.log('wakeup alarm detected--', result);
         var extra = JSON.parse(result.extra);
-        this.eventsManager.handleEvent(AppConstants.eventTypes.wakeupEvent, extra);
+        this.dataProvider.getTaskById(extra.id).subscribe(task => {
+          this.eventsManager.handleEvent(AppConstants.eventTypes.wakeupEvent, task);
+        });
       }
       else if (result.type === 'set') {
-        console.log('wakeup alarm set--' + result);
+        LogService.log('wakeup alarm set--' + result);
       }
       else {
-        console.log('wakeup unhandled type (' + result.type + ')');
+        LogService.log('wakeup unhandled type (' + result.type + ')');
       }
     });
   };
 
   alarmError(error) {
-
+    LogService.log("Timer error: ", error);
   }
 }

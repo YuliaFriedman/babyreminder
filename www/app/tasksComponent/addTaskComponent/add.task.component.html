@@ -2,7 +2,7 @@
   <div class="content_container">
 
     <div class="timeSection" (click)="openTimePicker()">
-      {{task.time.toString()}}
+      {{appUtils.getTimeString(timePickerModel.hour, timePickerModel.minute)}}
       <!--<ngb-timepicker [(ngModel)]="timePickerModel" required id="timePicker"></ngb-timepicker>-->
     </div>
 
@@ -39,8 +39,8 @@
 
     <div id="shareContactsContainer">
 
-      <div *ngFor="let c of task.contacts">
-        <div>
+      <div *ngFor="let c of task.contacts" class="single_contact">
+        <div class="contact_name">
           {{c.name}}
         </div>
         <div>

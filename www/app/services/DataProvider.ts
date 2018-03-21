@@ -7,24 +7,72 @@ import {Injectable, NgZone} from "@angular/core";
 import {LogService} from "./LogService";
 import {TasksTimer} from "./TasksTimerService";
 import {AppConstants} from "../appConstants";
-import {EventsManager} from "./AppEventsManager";
+import {EventsManager, IEventHandler} from "./AppEventsManager";
 import {NewNotification, NotificationType} from "../models/notificationInfo";
+import {TaskChangedData, TaskChangeStatus} from "../models/taskChangedModel";
+import {IMessage, MessageType, TaskStatusChangedMessage} from "../models/message";
 //import {setTimeout} from "timers";
 
 @Injectable()
-export class DataProvider{
+export class DataProvider implements IEventHandler{
+  handlerName: string;
+
+  platform: "Android";
 
   tasks;
   newTask: Task;
 
-  constructor(private _appFeatureSupportService: AppFeatureSupportService, private _logService: LogService, private zone:NgZone,
+  constructor(private _appFeatureSupportService: AppFeatureSupportService, private zone:NgZone,
               private eventsManager:EventsManager){
+    this.handlerName = "DataProvider";
+      eventsManager.subscribeEvent(AppConstants.eventTypes.taskStatusChanged, this);
+  }
 
+  handleEvent(eventType: string, data: any) {
+    switch (eventType){
+      // TODO: notify server!!!
+      case AppConstants.eventTypes.taskStatusChanged:
+        let taskData = data as TaskChangedData;
+        switch (taskData.status){
+          case TaskChangeStatus.Stop:
+            taskData.task.stopTask();
+            break;
+          case TaskChangeStatus.Snooze:
+            taskData.task.snoozeTask();
+            break;
+          case TaskChangeStatus.Complete:
+            taskData.task.completeTask();
+            break;
+          case TaskChangeStatus.Start:
+            taskData.task.startTimer();
+            break;
+        }
+        this.eventsManager.handleEvent(AppConstants.eventTypes.setAlarm, this.tasks);
+        break;
+    }
+  }
 
+  getMessages(): Observable<IMessage[]>{
 
+    let messages = [];
+    let m1 = new TaskStatusChangedMessage();
+    m1.title = "Take kid to the kinder garden";
+    m1.date = new Date().getTime();
+    m1.executor = new Contact("Danny", "0546666666");
+    m1.type = MessageType.TaskCompleted;
+    m1.status = TaskChangeStatus.Complete;
 
+    let m2 = new TaskStatusChangedMessage();
+    m2.title = "Take kid to the kinder garden 222";
+    m2.date = new Date().getTime();
+    m2.executor = new Contact("Danny", "0546666666");
+    m2.type = MessageType.TaskCanceled;
+    m2.status = TaskChangeStatus.Stop;
 
-
+    return new Observable((observer) => {
+      observer.next([m1 , m2]);
+      observer.complete();
+    });
   }
 
   getTasks():  Observable<Task[]>{
@@ -93,6 +141,13 @@ export class DataProvider{
     return this.newTask;
   }
 
+  deleteTask(task){
+    let indexOfTask = this.tasks.indexOf(task);
+    if(indexOfTask >= 0) {
+      this.tasks.splice(indexOfTask, 1);
+    }
+  }
+
   getContacts(): Observable<Contact[]>{
     return new Observable((observer) => {
 
@@ -135,55 +190,54 @@ export class DataProvider{
 
           }
         }
-        this._logService.log("Contacts: ", contacts);
+        LogService.log("Contacts: ", contacts);
         this.markSelectedContacts(contacts);
         observer.next(contacts);
         observer.complete();
       });
 
     }, () => {
-      this._logService.log("Get contacts failed");
+      LogService.log("Get contacts failed");
       observer.error(new Error("Get contacts failed", ErrorType.GetContactsFailed));
     }, options);
   }
 
   getDemoContacts(observer){
     let arr = [new Contact("aaa", "222"),
-      new Contact("bbb", "333"),
+      new Contact("bbb", "111"),
       new Contact("aaa", "222"),
-      new Contact("bbb", "333"),
-      new Contact("aaa", "222"),
-      new Contact("bbb", "333"),
-      new Contact("aaa", "222"),
-      new Contact("bbb", "333"),
-      new Contact("aaa", "222"),
+      new Contact("ccc", "333"),
+      new Contact("vvv", "444"),
+      new Contact("bbb", "555"),
+      new Contact("nnn", "666"),
+      new Contact("mmm", "777"),
+      new Contact("fff", "888"),
 
-      new Contact("aaa", "222"),
-      new Contact("bbb", "333"),
-      new Contact("aaa", "222"),
-      new Contact("bbb", "333"),
-      new Contact("aaa", "222"),
-      new Contact("bbb", "333"),
-      new Contact("aaa", "222"),
-      new Contact("bbb", "333"),
-      new Contact("aaa", "222"),
+      new Contact("ggg", "222111"),
+      new Contact("hhh", "333222"),
+      new Contact("jjj", "222333"),
+      new Contact("kkk", "333444"),
+      new Contact("lll", "222555"),
+      new Contact("qqq", "333666"),
+      new Contact("www", "222777"),
+      new Contact("eee", "333888"),
+      new Contact("rrr", "222999"),
 
-      new Contact("aaa", "222"),
-      new Contact("bbb", "333"),
-      new Contact("aaa", "222"),
-      new Contact("bbb", "333"),
-      new Contact("aaa", "222"),
-      new Contact("bbb", "333"),
-      new Contact("aaa", "222"),
-      new Contact("bbb", "333"),
-      new Contact("aaa", "222")];
+      new Contact("ttt", "222222111"),
+      new Contact("yyy", "333333222"),
+      new Contact("uuu", "222444333"),
+      new Contact("iii", "333555444"),
+      new Contact("ooo", "222666555"),
+      new Contact("ppp", "333777666"),
+      new Contact("zzz", "222888777"),
+      new Contact("xxx", "333888888")];
 
-    this.markSelectedContacts(arr);
+    //this.markSelectedContacts(arr);
 
-    //setTimeout(() => {
+    setTimeout(() => {
       observer.next(arr);
       observer.complete();
-    //}, 1000);
+    }, 50000);
   }
 
   markSelectedContacts(contacts){
@@ -204,9 +258,4 @@ export class DataProvider{
     }
   }
 
-  setContactsInNewTask(contacts: Contact[]): void{
-    if(this.newTask){
-      this.newTask.contacts = contacts;
-    }
-  }
 }

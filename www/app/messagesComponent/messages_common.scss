@@ -1,0 +1,30 @@
+@import '../../sass/variables';
+@import '../shared';
+
+.message_item{
+  padding: 10px;
+  background: $list-item-background;
+  margin: 10px 0px;
+  border-left: 4px solid transparent;
+  border-bottom: 1px solid $list-item-bottom-border;
+  border-top: 1px solid $list-item-top-border;
+  color: $list-item-color;
+  border-radius: 3px;
+}
+
+.message_title{
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.date_row{
+  display: flex;
+}
+
+.date_row > *{
+  flex:1;
+}
+
+.executor_cell{
+  text-align: right;
+}

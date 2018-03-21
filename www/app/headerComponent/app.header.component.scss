@@ -1,9 +1,14 @@
 @import '../../sass/variables';
 
 .header_container{
-  background: $primary-color-8;
+  background: $header-bg;
   padding: 6px 10px 3px 10px;
   color: white;
   font-weight: bold;
   font-size: 15px;
+}
+
+#menuButton{
+  vertical-align: middle;
+  margin-right: 10px;
 }

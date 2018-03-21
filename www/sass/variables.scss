@@ -1,6 +1,8 @@
 //@import './3rdparty-theme';
 $white: rgb(255, 255, 255);
 
+
+
 $primary-color-12: #2c414a;
 $primary-color-11: #2d4a56;
 $primary-color-10: #334c56;
@@ -33,8 +35,9 @@ $secondary-text-weak_2:rgb(127, 127, 127);
 
 $error_color: #9f0b00;
 
+/* HEADER */
 
-
+$header-bg: $primary-color-11;
 
 /* MAIN */
 
@@ -48,18 +51,27 @@ $horizontal-bottom-line-bg: $primary-color-7;
 
 $ok-button-color: $secondary-color-8;
 $cancel-button-color: $primary-color-6;
+
+$spinner-color: $secondary-color-7;
+
+/* APP-MENU */
+
+$menu-bg: $bg-color;
+$menu-color: $app-text-default-color;
+
 /* TABS */
 
 $tab-selected-line: $secondary-color-8;
-$tab-background: $primary-color-8;
+$tab-background: $primary-color-11;
 $tab-text: $primary-text-8;
+$tabs-shadow-color: #000000;
 
-/* TASK ITEM */
+/* LIST ITEM */
 
-$task-item-background: $primary-color-7;
-$task-item-bottom-border: $primary-color-10;
-$task-item-top-border: $primary-color-6;
-$task-item-color: $primary-text-7;
+$list-item-background: $primary-color-7;
+$list-item-bottom-border: $primary-color-10;
+$list-item-top-border: $primary-color-6;
+$list-item-color: $primary-text-7;
 
 /* TASK DETAILS */
 
@@ -86,3 +98,14 @@ $new-contact-border-top: $primary-color-12;
 $new-contact-border-bottom: $primary-color-8;
 
 $new-contact-input-color: $primary-color-6;
+
+/* Alert */
+$alert-bg: $primary-color-8;
+$alert-header-bg: white;
+$alert-header-color: $primary-color-8;
+$alert-content-color: white;
+
+/* MESSAGES */
+
+$completed-task-border: #7cbd19;
+$stopped-task-border: #c30606;

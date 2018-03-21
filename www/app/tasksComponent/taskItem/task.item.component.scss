@@ -4,11 +4,11 @@
 .task_item_container{
   display: flex;
   padding: 10px;
-  background: $task-item-background;
+  background: $list-item-background;
   margin: 10px 0px;
-  border-bottom: 1px solid $task-item-bottom-border;
-  border-top: 1px solid $task-item-top-border;
-  color: $task-item-color;
+  border-bottom: 1px solid $list-item-bottom-border;
+  border-top: 1px solid $list-item-top-border;
+  color: $list-item-color;
   border-radius: 3px;
 }
 

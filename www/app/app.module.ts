@@ -37,10 +37,25 @@ import {NotificationsService} from "./services/NotificationsService";
 import {TaskDetailsComponent} from "./tasksComponent/taskDetailsComponent/task.details.component";
 import {AppHeaderComponent} from "./headerComponent/app.header.component";
 import { AmazingTimePickerModule } from 'amazing-time-picker';
+import {TaskMessageComponent} from "./messagesComponent/taskMessageComponent/task.message.component";
+import {AppMenuComponent} from "./menuComponent/app.menu.component";
+import {LoginService} from "./services/LoginService";
+import {LoginPageComponent} from "./login/login.component";
+import {AppContentComponent} from "./appContentComponent/app.content.component";
+
+interface ExtendedNotificatoin extends Notification{
+  beep(times: number);
+  vibrate(time:number);
+  confirm(message: string,
+          confirmCallback: (choice: number) => void,
+          title?: string,
+          buttonLabels?: string[]);
+}
 
 declare global {
   interface Navigator {
     contacts: any;
+    notification: ExtendedNotificatoin;
   }
 }
 
@@ -61,11 +76,15 @@ declare global {
     TaskItemComponent,
     AddTaskComponent,
     MessagesComponent,
+    TaskMessageComponent,
     ContactsListComponent,
     TaskAlertComponent,
     TesterComponent,
     TaskDetailsComponent,
-    AppHeaderComponent
+    AppHeaderComponent,
+    AppMenuComponent,
+    LoginPageComponent,
+    AppContentComponent
   ],
   imports: [
     BrowserModule,
@@ -84,17 +103,18 @@ declare global {
     FormsModule,
     AppRouterModule,
     AmazingTimePickerModule,
+    MatSidenavModule,
     NgbModule.forRoot()
   ],
   providers: [
     DataProvider,
     AppUtils,
     AppFeatureSupportService,
-    LogService,
     TasksTimer,
     EventsManager,
     BackgroundManager,
     NotificationsService,
+    LoginService,
     {provide: APP_BASE_HREF, useValue : '/' }
     ], //, AppStore
   bootstrap: [AppComponent]

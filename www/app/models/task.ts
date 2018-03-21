@@ -1,3 +1,6 @@
+import {Injectable} from "@angular/core";
+import {LogService} from "../services/LogService";
+
 let idIndex = 0;
 let id = 0;
 
@@ -24,7 +27,7 @@ export class Task {
     this.days = [];
     this.contacts = [];
     this.timerState = new TimerState();
-
+    this.repeat = false;
     this.completedDays = [];
   }
 
@@ -44,23 +47,45 @@ export class Task {
   snoozeTask(){
     this.timerState.setType(TimerType.Snooze);
     this.timerState.addSnooze(this.time);
-  }
 
-  skipTask(){
-    this.timerState.setType(TimerType.Alarm);
+    LogService.log("In snooze task: ", this);
   }
 
   stopTask(){
     this.isEnabled = false;
     this.timerState.setType(TimerType.Idle);
+
+    LogService.log("In stop task: ", this);
   }
 
   completeTask(){
-    this.timerState.setType(TimerType.Alarm);
-    let today = new Date().getDay();
+
+    LogService.log("In complete task: ", this);
+
     if(!this.repeat){
-      this.completedDays.push(today);
+      let today = new Date().getDay();
+      if(!this.completedDays.includes(today)){
+        this.completedDays.push(today);
+      }
     }
+    let CompletedAll = this.days.length == this.completedDays.length;
+    if(CompletedAll){
+      this.timerState.setType(TimerType.Idle);
+      this.isEnabled = false;
+    }
+    else{
+      this.timerState.setType(TimerType.Alarm);
+    }
+
+    LogService.log("In complete task: all days completed = " + CompletedAll, this);
+  }
+
+  startTimer(){
+    if(this.timerState.type == TimerType.Alarm || this.timerState.type == TimerType.Snooze){
+      return;
+    }
+    this.timerState.setType(TimerType.Alarm);
+    this.isEnabled = true;
   }
 
   getNotCompletedDays(){
@@ -77,24 +102,10 @@ export class Task {
     return "";
   }
 
-  getDayLeter(day:Days){
-    switch (day){
-      case Days.Sunday:
-        return 'S';
-      case Days.Monday:
-        return 'M';
-      case Days.Tuesday:
-        return 'T';
-      case Days.Wednesday:
-        return 'W';
-      case Days.Thursday:
-        return 'Th';
-      case Days.Friday:
-        return 'F';
-      case Days.Saturday:
-        return 'Sa';
-    }
+  sortDays(){
+    this.days.sort((a, b) => a - b);
   }
+
 }
 
 export enum Days {
@@ -106,6 +117,27 @@ export enum Days {
   Friday,
   Saturday
 }
+
+export let DaysHelper = {
+  getPrefixOfDayName: function (day: Days, prefixLength: number) {
+    switch (day){
+      case Days.Sunday:
+        return 'Sunday'.substr(0, prefixLength);
+      case Days.Monday:
+        return 'Monday'.substr(0, prefixLength);
+      case Days.Tuesday:
+        return 'Tuesday'.substr(0, prefixLength);
+      case Days.Wednesday:
+        return 'Wednesday'.substr(0, prefixLength);
+      case Days.Thursday:
+        return 'Thursday'.substr(0, prefixLength);
+      case Days.Friday:
+        return 'Friday'.substr(0, prefixLength);
+      case Days.Saturday:
+        return 'Saturday'.substr(0, prefixLength);
+    }
+  }
+};
 
 export class Contact{
   name: string;

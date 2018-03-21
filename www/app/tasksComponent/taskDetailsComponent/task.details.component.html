@@ -3,27 +3,26 @@
   <div class="task_details">
 
     <div class="isEnabledTask">
-      <mat-slide-toggle [checked]="task.isEnabled" [disabled]="true"></mat-slide-toggle>
+      <mat-slide-toggle [checked]="task.isEnabled" (change)="enableValueChanged(task)"></mat-slide-toggle>
     </div>
 
     <div class="timeSection">
-      {{task.time.toString()}}
-
+      {{appUtils.getTimeString(task.time.hour, task.time.minute)}}
     </div>
     <div class="nextAlarmSection">
-      Next alarm: {{task.time.toString()}} {{task.getNextAlarmDay()}}
+      Next alarm: {{appUtils.getTimeString(task.time.hour, task.time.minute)}} {{task.getNextAlarmDay()}}
     </div>
     <div id="daysContainer">
-      <span class="day_button" [ngClass]="{day_selected: task.days.indexOf(0) >= 0}">S</span>
-      <span class="day_button" [ngClass]="{day_selected: task.days.indexOf(1) >= 0}">M</span>
-      <span class="day_button" [ngClass]="{day_selected: task.days.indexOf(2) >= 0}">T</span>
-      <span class="day_button" [ngClass]="{day_selected: task.days.indexOf(3) >= 0}">W</span>
-      <span class="day_button" [ngClass]="{day_selected: task.days.indexOf(4) >= 0}">Th</span>
-      <span class="day_button" [ngClass]="{day_selected: task.days.indexOf(5) >= 0}">F</span>
-      <span class="day_button" [ngClass]="{day_selected: task.days.indexOf(6) >= 0}">St</span>
+      <div class="sub_title">Days</div>
+      <div>
+        <span *ngFor="let day of task.days; let i = index" class="sub_title_value">{{daysHelper.getPrefixOfDayName(day, 3)}}<span *ngIf="i < task.days.length - 1">, </span></span>
+      </div>
     </div>
+
+    <div class="horizontal_line_separator"></div>
+
     <div class="titleSection">
-      <div class="sub_title">title</div>
+      <div class="sub_title">Title</div>
       <div class="sub_title_value">{{task.title}}</div>
     </div>
     <div class="horizontal_line_separator"></div>

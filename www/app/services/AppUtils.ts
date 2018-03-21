@@ -16,4 +16,9 @@ export class AppUtils{
     return obj == undefined || obj == null;
   }
 
+  getTimeString(hour, minute){
+    let hoursStr = hour < 10 ? "0" + hour : hour;
+    let minutesStr = minute < 10 ? "0" + minute : minute;
+    return hoursStr + ":" + minutesStr;
+  }
 }
